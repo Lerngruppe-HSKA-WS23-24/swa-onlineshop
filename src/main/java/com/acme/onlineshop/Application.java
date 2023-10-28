@@ -16,17 +16,13 @@
  */
 package com.acme.onlineshop;
 
-import com.acme.onlineshop.dev.DevConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.ImportRuntimeHints;
-import org.springframework.hateoas.config.EnableHypermediaSupport;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import static com.acme.onlineshop.Banner.TEXT;
-import static org.springframework.hateoas.config.EnableHypermediaSupport.HypermediaType.HAL;
-import static org.springframework.hateoas.support.WebStack.WEBMVC;
 
 /**
  * Klasse mit der main-Methode für die Anwendung auf Basis von Spring Boot.
@@ -34,9 +30,8 @@ import static org.springframework.hateoas.support.WebStack.WEBMVC;
  * @author <a href="mailto:Juergen.Zimmermann@h-ka.de">Jürgen Zimmermann</a>
  */
 @SpringBootApplication(proxyBeanMethods = false)
-@Import({com.acme.onlineshop.ApplicationConfig.class, DevConfig.class})
+@Import({com.acme.onlineshop.ApplicationConfig.class})
 @ImportRuntimeHints(ApplicationConfig.CertificateResourcesRegistrar.class)
-@EnableHypermediaSupport(type = HAL, stacks = WEBMVC)
 @EnableWebSecurity
 @EnableMethodSecurity
 @SuppressWarnings({"ImplicitSubclassInspection", "ClassUnconnectedToPackage"})

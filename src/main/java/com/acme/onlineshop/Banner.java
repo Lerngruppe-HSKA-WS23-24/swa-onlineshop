@@ -42,11 +42,14 @@ final class Banner {
 
     // http://patorjk.com/software/taag/#p=display&f=Slant&t=kunde%20v1
     private static final String FIGLET = """
-         _                    _        ____   ___ ____  _____  _  ___   ___
-        | | ___   _ _ __   __| | ___  |___ \\ / _ \\___ \\|___ / / |/ _ \\ / _ \\
-        | |/ / | | | '_ \\ / _` |/ _ \\   __) | | | |__) | |_ \\ | | | | | | | |
-        |   <| |_| | | | | (_| |  __/  / __/| |_| / __/ ___) || | |_| | |_| |
-        |_|\\_\\\\__,_|_| |_|\\__,_|\\___| |_____|\\___/_____|____(_)_|\\___(_)___/
+          ____        _ _                 _                \s
+         / __ \\      | (_)               | |               \s
+        | |  | |_ __ | |_ _ __   ___  ___| |__   ___  _ __ \s
+        | |  | | '_ \\| | | '_ \\ / _ \\/ __| '_ \\ / _ \\| '_ \\\s
+        | |__| | | | | | | | | |  __/\\__ \\ | | | (_) | |_) |
+         \\____/|_| |_|_|_|_| |_|\\___||___/_| |_|\\___/| .__/\s
+                                                     | |   \s
+                                                     |_|  \s
         """;
     private static final String JAVA = STR."\{Runtime.version()} - \{System.getProperty("java.vendor")}";
     private static final String OS_VERSION = System.getProperty("os.name");

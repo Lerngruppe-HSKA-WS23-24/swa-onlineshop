@@ -50,7 +50,7 @@
           <entry name="$PROJECT_DIR$/../gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/txw2/4.0.2/24e167be69c29ebb7ee0a3b1f9b546f1dfd111fc/txw2-4.0.2.jar" />
           <entry name="$PROJECT_DIR$/../gradle/caches/modules-2/files-2.1/com.sun.istack/istack-commons-runtime/4.1.1/9b3769c76235bc283b060da4fae2318c6d53f07e/istack-commons-runtime-4.1.1.jar" />
         </processorPath>
-        <module name="kunde.main" />
+        <module name="onlineshop.main" />
       </profile>
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
@@ -77,7 +77,7 @@
           <entry name="$PROJECT_DIR$/../gradle/caches/modules-2/files-2.1/org.checkerframework/checker-qual/3.33.0/de2b60b62da487644fc11f734e73c8b0b431238f/checker-qual-3.33.0.jar" />
           <entry name="$PROJECT_DIR$/../gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar" />
         </processorPath>
-        <module name="kunde.test" />
+        <module name="onlineshop.test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="21" />
