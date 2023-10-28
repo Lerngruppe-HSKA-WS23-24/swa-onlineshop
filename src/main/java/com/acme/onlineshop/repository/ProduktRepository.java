@@ -98,10 +98,10 @@ public class ProduktRepository {
     }
 
     /**
-     * Produkt zu gegebener Emailadresse aus der DB ermitteln.
+     * Produkt zu gegebenem Namen aus der DB ermitteln.
      *
-     * @param email Emailadresse für die Suche
-     * @return Gefundener Produkt oder leeres Optional
+     * @param name Name für die Suche
+     * @return Gefundenes Produkt oder leeres Optional
      */
     public Optional<Produkt> findByName(final String name) {
         log.debug("findByName: {}", name);
