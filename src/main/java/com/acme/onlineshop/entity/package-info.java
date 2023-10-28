@@ -16,6 +16,6 @@
  */
 
 /**
- * Microservice "onlineshop".
+ * Entity-Klassen für Onlineshop.
  */
-package com.acme.onlineshop;
+package com.acme.onlineshop.entity;

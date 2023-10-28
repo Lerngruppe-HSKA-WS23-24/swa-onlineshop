@@ -16,6 +16,6 @@
  */
 
 /**
- * Microservice "onlineshop".
+ * Klassen für den Anwendungskern.
  */
-package com.acme.onlineshop;
+package com.acme.onlineshop.service;

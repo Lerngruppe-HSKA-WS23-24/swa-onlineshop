@@ -38,9 +38,14 @@ public class Produkt {
     @EqualsAndHashCode.Include
     private UUID sku;
 
+    /**
+     * Der Name des Produkts.
+     * @param name Der name.
+     * @return Der name.
+     */
     @NotNull
     @Pattern(regexp = NAME_PATTERN)
-    private String nachname;
+    private String name;
 
     /**
      * Die Adresse des Kunden.

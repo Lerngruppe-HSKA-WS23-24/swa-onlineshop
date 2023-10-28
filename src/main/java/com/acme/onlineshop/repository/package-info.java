@@ -16,6 +16,6 @@
  */
 
 /**
- * Microservice "onlineshop".
+ * Repository für Kunden.
  */
-package com.acme.onlineshop;
+package com.acme.onlineshop.repository;
