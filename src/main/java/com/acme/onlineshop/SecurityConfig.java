@@ -26,9 +26,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
-import static com.acme.onlineshop.security.Rolle.ACTUATOR;
 import static com.acme.onlineshop.security.Rolle.ADMIN;
-import static com.acme.onlineshop.security.Rolle.KUNDE;
 import static org.springframework.security.config.Customizer.withDefaults;
 import static org.springframework.security.crypto.factory.PasswordEncoderFactories.createDelegatingPasswordEncoder;
 
@@ -83,7 +81,7 @@ interface SecurityConfig {
         final var users = List.of(
             User.withUsername("admin")
                 .password(passwordEncoder.encode("p"))
-                .roles(ADMIN.name(), KUNDE.name(), ACTUATOR.name())
+                .roles(ADMIN.name())
                 .build()
         );
 
