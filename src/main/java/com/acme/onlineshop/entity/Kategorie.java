@@ -29,7 +29,7 @@ public class Kategorie {
     private UUID id;
 
     /**
-     * Die Währung beim Umsatz.
+     * Der Name der Kategorie.
      * @param name Der Kategoriename.
      * @return Der Kategoriename.
      */

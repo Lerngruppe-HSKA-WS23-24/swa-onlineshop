@@ -53,7 +53,7 @@ final class DB {
             Produkt.builder()
                 .sku(UUID.fromString("00000000-0000-0000-0000-000000000001"))
                 .name("Gucci T-Shirt")
-                .kategrorie(
+                .kategorie(
                     Kategorie
                         .builder()
                         .id(UUID.fromString("10000000-0000-0000-0000-000000000001"))
@@ -81,7 +81,7 @@ final class DB {
             Produkt.builder()
                 .sku(UUID.fromString("00000000-0000-0000-0000-000000000002"))
                 .name("Lacoste T-Shirt")
-                .kategrorie(
+                .kategorie(
                     Kategorie
                         .builder()
                         .id(UUID.fromString("10000000-0000-0000-0000-000000000001"))
@@ -109,7 +109,7 @@ final class DB {
             Produkt.builder()
                 .sku(UUID.fromString("00000000-0000-0000-0000-000000000003"))
                 .name("HKa Tasse")
-                .kategrorie(
+                .kategorie(
                     Kategorie
                         .builder()
                         .id(UUID.fromString("10000000-0000-0000-0000-000000000002"))

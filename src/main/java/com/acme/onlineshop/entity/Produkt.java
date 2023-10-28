@@ -36,6 +36,7 @@ public class Produkt {
      * @return Die sku.
      */
     @EqualsAndHashCode.Include
+    @NotNull
     private UUID sku;
 
     /**
@@ -48,14 +49,14 @@ public class Produkt {
     private String name;
 
     /**
-     * Die Adresse des Kunden.
+     * Die Kategorie des Produkts.
      * @param kategrorie Die Kategorie.
      * @return Die Kategorie.
      */
     @Valid
     @Null
     @ToString.Exclude
-    private Kategorie kategrorie;
+    private Kategorie kategorie;
 
     /**
      * Die Attribute des Produktes.
@@ -64,5 +65,4 @@ public class Produkt {
      */
     @ToString.Exclude
     private List<ProduktAttribut> attribute;
-
 }

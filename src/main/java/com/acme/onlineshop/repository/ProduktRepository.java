@@ -32,7 +32,7 @@ import static com.acme.onlineshop.repository.DB.PRODUKTE;
 import static java.util.Collections.emptyList;
 
 /**
- * Repository für den DB-Zugriff bei Produktn.
+ * Repository für den DB-Zugriff bei Produkten.
  *
  * @author <a href="mailto:Juergen.Zimmermann@h-ka.de">Jürgen Zimmermann</a>
  */
