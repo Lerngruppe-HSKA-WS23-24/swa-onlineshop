@@ -4,6 +4,8 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
 import jakarta.validation.constraints.Pattern;
+
+import java.util.List;
 import java.util.UUID;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -21,7 +23,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@SuppressWarnings({"ClassFanOutComplexity", "RequireEmptyLineBeforeBlockTagGroup"})
+@SuppressWarnings({"ClassFanOutComplexity", "JavadocDeclaration", "RequireEmptyLineBeforeBlockTagGroup"})
 public class Produkt {
     /**
      * Muster für einen Produkt Namen ohne Punkte oder Kommas.
@@ -49,4 +51,13 @@ public class Produkt {
     @Null
     @ToString.Exclude
     private Kategorie kategrorie;
+
+    /**
+     * Die Attribute des Produktes.
+     * @param attribute Die Attribute.
+     * @return Die Attribute.
+     */
+    @ToString.Exclude
+    private List<ProduktAttribut> attribute;
+
 }
