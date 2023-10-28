@@ -22,14 +22,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
-import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 
 import static com.acme.onlineshop.repository.DB.PRODUKTE;
-import static java.util.Collections.emptyList;
 
 /**
  * Repository für den DB-Zugriff bei Produkten.
@@ -56,59 +53,11 @@ public class ProduktRepository {
     }
 
     /**
-     * Produktn anhand von Suchkriterien ermitteln.
-     * Z.B. mit GET https://localhost:8080/api?nachname=A&amp;plz=7
-     *
-     * @param suchkriterien Suchkriterien.
-     * @return Gefundene Produktn oder leere Collection.
-     */
-    @SuppressWarnings({"ReturnCount", "JavadocLinkAsPlainText"})
-    public @NonNull Collection<Produkt> find(final Map<String, ? extends List<String>> suchkriterien) {
-        log.debug("find: suchkriterien={}", suchkriterien);
-
-        if (suchkriterien.isEmpty()) {
-            return findAll();
-        }
-
-        // for-Schleife statt "forEach" wegen return
-        for (final var entry : suchkriterien.entrySet()) {
-            switch (entry.getKey()) {
-                case "name" -> {
-                    final var ProduktOpt = findByName(entry.getValue().get(0));
-                    //noinspection OptionalIsPresent
-                    return ProduktOpt.isPresent() ? List.of(ProduktOpt.get()) : emptyList();
-                }
-                default -> {
-                    log.debug("find: ungueltiges Suchkriterium={}", entry.getKey());
-                    return emptyList();
-                }
-            }
-        }
-
-        return emptyList();
-    }
-
-    /**
      * Alle Produktn als Collection ermitteln, wie sie später auch von der DB kommen.
      *
      * @return Alle Produktn
      */
     public @NonNull Collection<Produkt> findAll() {
         return PRODUKTE;
-    }
-
-    /**
-     * Produkt zu gegebenem Namen aus der DB ermitteln.
-     *
-     * @param name Name für die Suche
-     * @return Gefundenes Produkt oder leeres Optional
-     */
-    public Optional<Produkt> findByName(final String name) {
-        log.debug("findByName: {}", name);
-        final var result = PRODUKTE.stream()
-            .filter(Produkt -> Objects.equals(Produkt.getName(), name))
-            .findFirst();
-        log.debug("findByName: {}", result);
-        return result;
     }
 }

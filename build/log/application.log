@@ -104,3 +104,556 @@
 2023-10-28T14:45:20.349+02:00  INFO 6036 --- [main] com.acme.onlineshop.Application          : Started Application in 6.458 seconds (process running for 6.957)
 2023-10-28T14:45:20.358+02:00 DEBUG 6036 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
 2023-10-28T14:45:20.360+02:00 DEBUG 6036 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2023-10-28T16:47:51.440+02:00  INFO 13448 --- [main] o.s.s.core.SpringSecurityCoreVersion     : You are running with Spring Security Core 6.2.0-RC2
+2023-10-28T16:47:51.507+02:00  INFO 13448 --- [main] com.acme.onlineshop.Application          : Starting Application using Java 21.0.1 with PID 13448 (C:\Zimmermann\onlineshop\build\classes\java\main started by fresh in C:\Zimmermann\onlineshop)
+2023-10-28T16:47:51.507+02:00 DEBUG 13448 --- [main] com.acme.onlineshop.Application          : Running with Spring Boot v3.2.0-RC1, Spring v6.1.0-RC1
+2023-10-28T16:47:51.508+02:00  INFO 13448 --- [main] com.acme.onlineshop.Application          : The following 1 profile is active: "dev"
+2023-10-28T16:47:52.800+02:00  INFO 13448 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-28T16:47:52.825+02:00  INFO 13448 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 0 JPA repository interfaces.
+2023-10-28T16:47:54.043+02:00  INFO 13448 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (https)
+2023-10-28T16:47:54.060+02:00  INFO 13448 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-28T16:47:54.061+02:00  INFO 13448 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2023-10-28T16:47:54.146+02:00  INFO 13448 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-28T16:47:54.146+02:00  INFO 13448 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2587 ms
+2023-10-28T16:47:54.726+02:00  INFO 13448 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-28T16:47:55.031+02:00  INFO 13448 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2023-10-28T16:47:55.033+02:00  INFO 13448 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-28T16:47:55.045+02:00  INFO 13448 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2023-10-28T16:47:55.306+02:00  INFO 13448 --- [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.22.3 by Redgate
+2023-10-28T16:47:55.306+02:00  INFO 13448 --- [main] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2023-10-28T16:47:55.307+02:00  INFO 13448 --- [main] o.f.c.internal.license.VersionPrinter    : 
+2023-10-28T16:47:55.348+02:00  INFO 13448 --- [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:h2:mem:testdb (H2 2.2)
+2023-10-28T16:47:55.355+02:00  WARN 13448 --- [main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2023-10-28T16:47:55.384+02:00  INFO 13448 --- [main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "PUBLIC"."flyway_schema_history" does not exist yet
+2023-10-28T16:47:55.388+02:00  INFO 13448 --- [main] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.014s)
+2023-10-28T16:47:55.399+02:00  INFO 13448 --- [main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+2023-10-28T16:47:55.412+02:00 DEBUG 13448 --- [main] o.f.c.i.s.DefaultSqlScriptExecutor       : Executing SQL: CREATE TABLE IF NOT EXISTS "PUBLIC"."flyway_schema_history" (
+    "installed_rank" INT NOT NULL,
+    "version" VARCHAR(50),
+    "description" VARCHAR(200) NOT NULL,
+    "type" VARCHAR(20) NOT NULL,
+    "script" VARCHAR(1000) NOT NULL,
+    "checksum" INT,
+    "installed_by" VARCHAR(100) NOT NULL,
+    "installed_on" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "execution_time" INT NOT NULL,
+    "success" BOOLEAN NOT NULL,
+    CONSTRAINT "flyway_schema_history_pk" PRIMARY KEY ("installed_rank")
+) AS SELECT -1, NULL, '<< Flyway Schema History table created >>', 'TABLE', '', NULL, 'SA', CURRENT_TIMESTAMP, 0, TRUE
+2023-10-28T16:47:55.419+02:00 DEBUG 13448 --- [main] o.f.c.i.s.DefaultSqlScriptExecutor       : 0 rows affected
+2023-10-28T16:47:55.420+02:00 DEBUG 13448 --- [main] o.f.c.i.s.DefaultSqlScriptExecutor       : Executing SQL: CREATE INDEX "PUBLIC"."flyway_schema_history_s_idx" ON "PUBLIC"."flyway_schema_history" ("success")
+2023-10-28T16:47:55.422+02:00 DEBUG 13448 --- [main] o.f.c.i.s.DefaultSqlScriptExecutor       : 0 rows affected
+2023-10-28T16:47:55.430+02:00  INFO 13448 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": << Empty Schema >>
+2023-10-28T16:47:55.440+02:00  INFO 13448 --- [main] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "1.0 - Create"
+2023-10-28T16:47:55.448+02:00  INFO 13448 --- [main] o.f.core.internal.command.DbMigrate      : Successfully applied 1 migration to schema "PUBLIC", now at version v1.0 (execution time 00:00.001s)
+2023-10-28T16:47:55.579+02:00  INFO 13448 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-28T16:47:55.656+02:00  INFO 13448 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2023-10-28T16:47:55.699+02:00  INFO 13448 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2023-10-28T16:47:55.945+02:00  INFO 13448 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-28T16:47:56.325+02:00  INFO 13448 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-10-28T16:47:56.330+02:00  INFO 13448 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-28T16:47:57.381+02:00  INFO 13448 --- [main] o.a.t.util.net.NioEndpoint.certificate   : Connector [https-jsse-nio-8080], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [C:\Users\fresh\.keystore] using alias [microservice] with trust store [null]
+2023-10-28T16:47:57.396+02:00  INFO 13448 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (https) with context path ''
+2023-10-28T16:47:57.419+02:00  INFO 13448 --- [main] com.acme.onlineshop.Application          : Started Application in 6.506 seconds (process running for 6.98)
+2023-10-28T16:47:57.428+02:00 DEBUG 13448 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2023-10-28T16:47:57.430+02:00 DEBUG 13448 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2023-10-28T16:48:34.444+02:00  INFO 13448 --- [tomcat-handler-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-28T16:48:34.445+02:00  INFO 13448 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-10-28T16:48:34.448+02:00 DEBUG 13448 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2023-10-28T16:48:34.453+02:00 DEBUG 13448 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2023-10-28T16:48:34.458+02:00 DEBUG 13448 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2023-10-28T16:48:34.612+02:00 DEBUG 13448 --- [tomcat-handler-5] s.w.s.m.m.a.RequestMappingHandlerMapping : 7 mappings in 'requestMappingHandlerMapping'
+2023-10-28T16:48:35.124+02:00  INFO 13448 --- [tomcat-handler-5] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 17 endpoint(s) beneath base path '/actuator'
+2023-10-28T16:48:35.385+02:00 DEBUG 13448 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@24951bba
+2023-10-28T16:48:35.431+02:00 DEBUG 13448 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@75e164be
+2023-10-28T16:48:35.432+02:00 DEBUG 13448 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='true': request parameters and headers will be shown which may lead to unsafe logging of potentially sensitive data
+2023-10-28T16:48:35.432+02:00  INFO 13448 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 987 ms
+2023-10-28T16:48:35.894+02:00  INFO 13448 --- [tomcat-handler-5] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7e662e24, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@74aabd4d, org.springframework.security.web.context.SecurityContextHolderFilter@2c0b842f, org.springframework.security.web.header.HeaderWriterFilter@37d381e6, org.springframework.web.filter.CorsFilter@11ec1d49, org.springframework.security.web.authentication.logout.LogoutFilter@23d288a5, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@12a1f455, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2420acc6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@718baa6c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4b3bb543, org.springframework.security.web.access.ExceptionTranslationFilter@5a9c7811, org.springframework.security.web.access.intercept.AuthorizationFilter@196523]
+2023-10-28T16:48:36.005+02:00 DEBUG 13448 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : GET "/rest/00000000-0000-0000-0000-000000000001", parameters={}
+2023-10-28T16:48:36.106+02:00 DEBUG 13448 --- [tomcat-handler-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/problem+json', given [application/hal+json] and supported [application/problem+json]
+2023-10-28T16:48:36.110+02:00 DEBUG 13448 --- [tomcat-handler-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ProblemDetail[type='about:blank', title='Not Acceptable', status=406, detail='Acceptable representat (truncated)...]
+2023-10-28T16:48:36.132+02:00 DEBUG 13448 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Completed 406 NOT_ACCEPTABLE
+2023-10-28T16:48:37.130+02:00 TRACE 13448 --- [AsyncReporter{org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender@25b4754a}] o.s.w.r.f.client.ExchangeFunctions       : [1dead286] HTTP POST http://localhost:9411/api/v2/spans, headers={masked}
+2023-10-28T16:48:37.585+02:00  WARN 13448 --- [AsyncReporter{org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender@25b4754a}] z.r.AsyncReporter$BoundedAsyncReporter   : Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2023-10-28T16:48:37.586+02:00  WARN 13448 --- [AsyncReporter{org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender@25b4754a}] z.r.AsyncReporter$BoundedAsyncReporter   : Dropped 5 spans due to WebClientRequestException(Connection refused: no further information: localhost/127.0.0.1:9411)
+
+org.springframework.web.reactive.function.client.WebClientRequestException: Connection refused: no further information: localhost/127.0.0.1:9411
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136) ~[spring-webflux-6.1.0-RC1.jar:6.1.0-RC1]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Request to POST http://localhost:9411/api/v2/spans [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136) ~[spring-webflux-6.1.0-RC1.jar:6.1.0-RC1]
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:228) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:278) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:326) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:211) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:872) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:336) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1743) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:195) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.netty.http.client.HttpClientConnect$MonoHttpConnect$ClientTransportSubscriber.onError(HttpClientConnect.java:311) ~[reactor-netty-http-1.1.12.jar:1.1.12]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onError(DefaultPooledConnectionProvider.java:162) ~[reactor-netty-core-1.1.12.jar:1.1.12]
+		at reactor.netty.internal.shaded.reactor.pool.AbstractPool$Borrower.fail(AbstractPool.java:475) ~[reactor-netty-core-1.1.12.jar:1.1.12]
+		at reactor.netty.internal.shaded.reactor.pool.SimpleDequePool.lambda$drainLoop$9(SimpleDequePool.java:433) ~[reactor-netty-core-1.1.12.jar:1.1.12]
+		at reactor.core.publisher.FluxDoOnEach$DoOnEachSubscriber.onError(FluxDoOnEach.java:186) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator$PooledConnectionInitializer.onError(DefaultPooledConnectionProvider.java:560) ~[reactor-netty-core-1.1.12.jar:1.1.12]
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.Operators.error(Operators.java:198) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.MonoError.subscribe(MonoError.java:53) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.tryFailure(TransportConnector.java:576) ~[reactor-netty-core-1.1.12.jar:1.1.12]
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.setFailure(TransportConnector.java:522) ~[reactor-netty-core-1.1.12.jar:1.1.12]
+		at reactor.netty.transport.TransportConnector.lambda$doConnect$7(TransportConnector.java:261) ~[reactor-netty-core-1.1.12.jar:1.1.12]
+		at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:321) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:337) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+	Suppressed: java.lang.Exception: #block terminated with an error
+		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:103) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.Mono.block(Mono.java:1728) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender$WebClientHttpPostCall.doExecute(ZipkinWebClientSender.java:76) ~[spring-boot-actuator-autoconfigure-3.2.0-RC1.jar:3.2.0-RC1]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender$WebClientHttpPostCall.doExecute(ZipkinWebClientSender.java:54) ~[spring-boot-actuator-autoconfigure-3.2.0-RC1.jar:3.2.0-RC1]
+		at zipkin2.Call$Base.execute(Call.java:391) ~[zipkin-2.23.2.jar:na]
+		at zipkin2.reporter.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:299) ~[zipkin-reporter-2.16.4.jar:na]
+		at zipkin2.reporter.AsyncReporter$Flusher.run(AsyncReporter.java:378) ~[zipkin-reporter-2.16.4.jar:na]
+		at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:9411
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973) ~[na:na]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2023-10-28T16:48:56.365+02:00 DEBUG 13448 --- [tomcat-handler-6] o.s.web.servlet.DispatcherServlet        : GET "/rest/00000000-0000-0000-0000-000000000001", parameters={}
+2023-10-28T16:48:56.366+02:00 DEBUG 13448 --- [tomcat-handler-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.acme.onlineshop.rest.ProduktGetController#getBySku(UUID, HttpServletRequest)
+2023-10-28T16:48:56.380+02:00 DEBUG 13448 --- [tomcat-handler-6] c.a.o.rest.ProduktGetController          : getBySku: sku=00000000-0000-0000-0000-000000000001, Thread=tomcat-handler-6
+2023-10-28T16:48:56.381+02:00 DEBUG 13448 --- [tomcat-handler-6] c.a.o.service.ProduktReadService         : findBySku: id=00000000-0000-0000-0000-000000000001
+2023-10-28T16:48:56.382+02:00 DEBUG 13448 --- [tomcat-handler-6] c.a.o.repository.ProduktRepository       : findById: sku=00000000-0000-0000-0000-000000000001
+2023-10-28T16:48:56.386+02:00 DEBUG 13448 --- [tomcat-handler-6] c.a.o.repository.ProduktRepository       : findBySku: Optional[Produkt(sku=00000000-0000-0000-0000-000000000001, name=Gucci T-Shirt)]
+2023-10-28T16:48:56.386+02:00 DEBUG 13448 --- [tomcat-handler-6] c.a.o.service.ProduktReadService         : findBySku: Produkt(sku=00000000-0000-0000-0000-000000000001, name=Gucci T-Shirt)
+2023-10-28T16:48:56.387+02:00 DEBUG 13448 --- [tomcat-handler-6] com.acme.onlineshop.rest.UriHelper       : getBaseUri (ohne Forwarding): baseUri=https://localhost:8080/rest
+2023-10-28T16:48:56.393+02:00 DEBUG 13448 --- [tomcat-handler-6] c.a.o.rest.ProduktGetController          : produkt: {produkt=Produkt(sku=00000000-0000-0000-0000-000000000001, name=Gucci T-Shirt), links=[<https://localhost:8080/rest/00000000-0000-0000-0000-000000000001>;rel="self", <https://localhost:8080/rest>;rel="list", <https://localhost:8080/rest>;rel="add", <https://localhost:8080/rest/00000000-0000-0000-0000-000000000001>;rel="update", <https://localhost:8080/rest/00000000-0000-0000-0000-000000000001>;rel="remove"]}
+2023-10-28T16:48:56.395+02:00 DEBUG 13448 --- [tomcat-handler-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2023-10-28T16:48:56.397+02:00 DEBUG 13448 --- [tomcat-handler-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{produkt=Produkt(sku=00000000-0000-0000-0000-000000000001, name=Gucci T-Shirt), links=[<https://loca (truncated)...]
+2023-10-28T16:48:56.420+02:00 DEBUG 13448 --- [tomcat-handler-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-10-28T16:48:56.762+02:00 TRACE 13448 --- [AsyncReporter{org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender@25b4754a}] o.s.w.r.f.client.ExchangeFunctions       : [ef3963d] HTTP POST http://localhost:9411/api/v2/spans, headers={masked}
+2023-10-28T16:49:50.522+02:00 DEBUG 13448 --- [tomcat-handler-7] o.s.web.servlet.DispatcherServlet        : GET "/rest/00000000-0000-0000-0000-000000000001", parameters={}
+2023-10-28T16:49:50.524+02:00 DEBUG 13448 --- [tomcat-handler-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.acme.onlineshop.rest.ProduktGetController#getBySku(UUID, HttpServletRequest)
+2023-10-28T16:49:50.525+02:00 DEBUG 13448 --- [tomcat-handler-7] c.a.o.rest.ProduktGetController          : getBySku: sku=00000000-0000-0000-0000-000000000001, Thread=tomcat-handler-7
+2023-10-28T16:49:50.525+02:00 DEBUG 13448 --- [tomcat-handler-7] c.a.o.service.ProduktReadService         : findBySku: id=00000000-0000-0000-0000-000000000001
+2023-10-28T16:49:50.526+02:00 DEBUG 13448 --- [tomcat-handler-7] c.a.o.repository.ProduktRepository       : findById: sku=00000000-0000-0000-0000-000000000001
+2023-10-28T16:49:50.527+02:00 DEBUG 13448 --- [tomcat-handler-7] c.a.o.repository.ProduktRepository       : findBySku: Optional[Produkt(sku=00000000-0000-0000-0000-000000000001, name=Gucci T-Shirt)]
+2023-10-28T16:49:50.527+02:00 DEBUG 13448 --- [tomcat-handler-7] c.a.o.service.ProduktReadService         : findBySku: Produkt(sku=00000000-0000-0000-0000-000000000001, name=Gucci T-Shirt)
+2023-10-28T16:49:50.527+02:00 DEBUG 13448 --- [tomcat-handler-7] com.acme.onlineshop.rest.UriHelper       : getBaseUri (ohne Forwarding): baseUri=https://localhost:8080/rest
+2023-10-28T16:49:50.527+02:00 DEBUG 13448 --- [tomcat-handler-7] c.a.o.rest.ProduktGetController          : produkt: {produkt=Produkt(sku=00000000-0000-0000-0000-000000000001, name=Gucci T-Shirt), links=[<https://localhost:8080/rest/00000000-0000-0000-0000-000000000001>;rel="self", <https://localhost:8080/rest>;rel="list", <https://localhost:8080/rest>;rel="add", <https://localhost:8080/rest/00000000-0000-0000-0000-000000000001>;rel="update", <https://localhost:8080/rest/00000000-0000-0000-0000-000000000001>;rel="remove"]}
+2023-10-28T16:49:50.528+02:00 DEBUG 13448 --- [tomcat-handler-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2023-10-28T16:49:50.528+02:00 DEBUG 13448 --- [tomcat-handler-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{produkt=Produkt(sku=00000000-0000-0000-0000-000000000001, name=Gucci T-Shirt), links=[<https://loca (truncated)...]
+2023-10-28T16:49:50.529+02:00 DEBUG 13448 --- [tomcat-handler-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-10-28T16:49:51.363+02:00 TRACE 13448 --- [AsyncReporter{org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender@25b4754a}] o.s.w.r.f.client.ExchangeFunctions       : [551a9e7f] HTTP POST http://localhost:9411/api/v2/spans, headers={masked}
+2023-10-28T16:50:09.496+02:00  INFO 3988 --- [main] o.s.s.core.SpringSecurityCoreVersion     : You are running with Spring Security Core 6.2.0-RC2
+2023-10-28T16:50:09.570+02:00  INFO 3988 --- [main] com.acme.onlineshop.Application          : Starting Application using Java 21.0.1 with PID 3988 (C:\Zimmermann\onlineshop\build\classes\java\main started by fresh in C:\Zimmermann\onlineshop)
+2023-10-28T16:50:09.571+02:00 DEBUG 3988 --- [main] com.acme.onlineshop.Application          : Running with Spring Boot v3.2.0-RC1, Spring v6.1.0-RC1
+2023-10-28T16:50:09.571+02:00  INFO 3988 --- [main] com.acme.onlineshop.Application          : The following 1 profile is active: "dev"
+2023-10-28T16:50:11.041+02:00  INFO 3988 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-28T16:50:11.069+02:00  INFO 3988 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 JPA repository interfaces.
+2023-10-28T16:50:12.295+02:00  INFO 3988 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (https)
+2023-10-28T16:50:12.310+02:00  INFO 3988 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-28T16:50:12.310+02:00  INFO 3988 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2023-10-28T16:50:12.398+02:00  INFO 3988 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-28T16:50:12.399+02:00  INFO 3988 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2763 ms
+2023-10-28T16:50:13.023+02:00  INFO 3988 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-28T16:50:13.344+02:00  INFO 3988 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2023-10-28T16:50:13.346+02:00  INFO 3988 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-28T16:50:13.358+02:00  INFO 3988 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2023-10-28T16:50:13.612+02:00  INFO 3988 --- [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.22.3 by Redgate
+2023-10-28T16:50:13.612+02:00  INFO 3988 --- [main] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2023-10-28T16:50:13.612+02:00  INFO 3988 --- [main] o.f.c.internal.license.VersionPrinter    : 
+2023-10-28T16:50:13.650+02:00  INFO 3988 --- [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:h2:mem:testdb (H2 2.2)
+2023-10-28T16:50:13.654+02:00  WARN 3988 --- [main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2023-10-28T16:50:13.676+02:00  INFO 3988 --- [main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "PUBLIC"."flyway_schema_history" does not exist yet
+2023-10-28T16:50:13.679+02:00  INFO 3988 --- [main] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.013s)
+2023-10-28T16:50:13.684+02:00  INFO 3988 --- [main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+2023-10-28T16:50:13.697+02:00 DEBUG 3988 --- [main] o.f.c.i.s.DefaultSqlScriptExecutor       : Executing SQL: CREATE TABLE IF NOT EXISTS "PUBLIC"."flyway_schema_history" (
+    "installed_rank" INT NOT NULL,
+    "version" VARCHAR(50),
+    "description" VARCHAR(200) NOT NULL,
+    "type" VARCHAR(20) NOT NULL,
+    "script" VARCHAR(1000) NOT NULL,
+    "checksum" INT,
+    "installed_by" VARCHAR(100) NOT NULL,
+    "installed_on" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "execution_time" INT NOT NULL,
+    "success" BOOLEAN NOT NULL,
+    CONSTRAINT "flyway_schema_history_pk" PRIMARY KEY ("installed_rank")
+) AS SELECT -1, NULL, '<< Flyway Schema History table created >>', 'TABLE', '', NULL, 'SA', CURRENT_TIMESTAMP, 0, TRUE
+2023-10-28T16:50:13.702+02:00 DEBUG 3988 --- [main] o.f.c.i.s.DefaultSqlScriptExecutor       : 0 rows affected
+2023-10-28T16:50:13.703+02:00 DEBUG 3988 --- [main] o.f.c.i.s.DefaultSqlScriptExecutor       : Executing SQL: CREATE INDEX "PUBLIC"."flyway_schema_history_s_idx" ON "PUBLIC"."flyway_schema_history" ("success")
+2023-10-28T16:50:13.704+02:00 DEBUG 3988 --- [main] o.f.c.i.s.DefaultSqlScriptExecutor       : 0 rows affected
+2023-10-28T16:50:13.712+02:00  INFO 3988 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": << Empty Schema >>
+2023-10-28T16:50:13.719+02:00  INFO 3988 --- [main] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "1.0 - Create"
+2023-10-28T16:50:13.728+02:00  INFO 3988 --- [main] o.f.core.internal.command.DbMigrate      : Successfully applied 1 migration to schema "PUBLIC", now at version v1.0 (execution time 00:00.002s)
+2023-10-28T16:50:13.868+02:00  INFO 3988 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-28T16:50:13.933+02:00  INFO 3988 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2023-10-28T16:50:13.981+02:00  INFO 3988 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2023-10-28T16:50:14.251+02:00  INFO 3988 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-28T16:50:14.640+02:00  INFO 3988 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-10-28T16:50:14.646+02:00  INFO 3988 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-28T16:50:15.817+02:00  INFO 3988 --- [main] o.a.t.util.net.NioEndpoint.certificate   : Connector [https-jsse-nio-8080], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [C:\Users\fresh\.keystore] using alias [microservice] with trust store [null]
+2023-10-28T16:50:15.830+02:00  INFO 3988 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (https) with context path ''
+2023-10-28T16:50:15.852+02:00  INFO 3988 --- [main] com.acme.onlineshop.Application          : Started Application in 6.926 seconds (process running for 7.42)
+2023-10-28T16:50:15.860+02:00 DEBUG 3988 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2023-10-28T16:50:15.863+02:00 DEBUG 3988 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2023-10-28T16:50:48.400+02:00  INFO 3988 --- [tomcat-handler-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-28T16:50:48.400+02:00  INFO 3988 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-10-28T16:50:48.403+02:00 DEBUG 3988 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2023-10-28T16:50:48.407+02:00 DEBUG 3988 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2023-10-28T16:50:48.410+02:00 DEBUG 3988 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2023-10-28T16:50:48.529+02:00 DEBUG 3988 --- [tomcat-handler-5] s.w.s.m.m.a.RequestMappingHandlerMapping : 7 mappings in 'requestMappingHandlerMapping'
+2023-10-28T16:50:48.919+02:00  INFO 3988 --- [tomcat-handler-5] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 17 endpoint(s) beneath base path '/actuator'
+2023-10-28T16:50:49.152+02:00 DEBUG 3988 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7109d758
+2023-10-28T16:50:49.198+02:00 DEBUG 3988 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@65042669
+2023-10-28T16:50:49.199+02:00 DEBUG 3988 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='true': request parameters and headers will be shown which may lead to unsafe logging of potentially sensitive data
+2023-10-28T16:50:49.199+02:00  INFO 3988 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 799 ms
+2023-10-28T16:50:49.590+02:00  INFO 3988 --- [tomcat-handler-5] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3eea7f57, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6b37d3fc, org.springframework.security.web.context.SecurityContextHolderFilter@393fd5f8, org.springframework.security.web.header.HeaderWriterFilter@634eb2c8, org.springframework.web.filter.CorsFilter@21c66abf, org.springframework.security.web.authentication.logout.LogoutFilter@d476df, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@13214510, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5586643f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@53841bcb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@34fc7a34, org.springframework.security.web.access.ExceptionTranslationFilter@2c0e90e7, org.springframework.security.web.access.intercept.AuthorizationFilter@3ec0b5c5]
+2023-10-28T16:50:49.767+02:00 DEBUG 3988 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : GET "/rest/00000000-0000-0000-0000-000000000001", parameters={}
+2023-10-28T16:50:49.770+02:00 DEBUG 3988 --- [tomcat-handler-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.acme.onlineshop.rest.ProduktGetController#getBySku(UUID, HttpServletRequest)
+2023-10-28T16:50:49.788+02:00 DEBUG 3988 --- [tomcat-handler-5] c.a.o.rest.ProduktGetController          : getBySku: sku=00000000-0000-0000-0000-000000000001, Thread=tomcat-handler-5
+2023-10-28T16:50:49.788+02:00 DEBUG 3988 --- [tomcat-handler-5] c.a.o.service.ProduktReadService         : findBySku: id=00000000-0000-0000-0000-000000000001
+2023-10-28T16:50:49.791+02:00 DEBUG 3988 --- [tomcat-handler-5] c.a.o.repository.ProduktRepository       : findById: sku=00000000-0000-0000-0000-000000000001
+2023-10-28T16:50:49.795+02:00 DEBUG 3988 --- [tomcat-handler-5] c.a.o.repository.ProduktRepository       : findBySku: Optional[Produkt(sku=00000000-0000-0000-0000-000000000001, name=Gucci T-Shirt)]
+2023-10-28T16:50:49.796+02:00 DEBUG 3988 --- [tomcat-handler-5] c.a.o.service.ProduktReadService         : findBySku: Produkt(sku=00000000-0000-0000-0000-000000000001, name=Gucci T-Shirt)
+2023-10-28T16:50:49.802+02:00 DEBUG 3988 --- [tomcat-handler-5] com.acme.onlineshop.rest.UriHelper       : getBaseUri (ohne Forwarding): baseUri=https://localhost:8080/rest
+2023-10-28T16:50:49.807+02:00 DEBUG 3988 --- [tomcat-handler-5] c.a.o.rest.ProduktGetController          : produkt: {produkt=Produkt(sku=00000000-0000-0000-0000-000000000001, name=Gucci T-Shirt), links=[<https://localhost:8080/rest/00000000-0000-0000-0000-000000000001>;rel="self"]}
+2023-10-28T16:50:49.819+02:00 DEBUG 3988 --- [tomcat-handler-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2023-10-28T16:50:49.826+02:00 DEBUG 3988 --- [tomcat-handler-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{produkt=Produkt(sku=00000000-0000-0000-0000-000000000001, name=Gucci T-Shirt), links=[<https://loca (truncated)...]
+2023-10-28T16:50:49.896+02:00 DEBUG 3988 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-10-28T16:50:50.845+02:00 TRACE 3988 --- [AsyncReporter{org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender@3ccfac29}] o.s.w.r.f.client.ExchangeFunctions       : [745169f7] HTTP POST http://localhost:9411/api/v2/spans, headers={masked}
+2023-10-28T16:50:51.100+02:00  WARN 3988 --- [AsyncReporter{org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender@3ccfac29}] z.r.AsyncReporter$BoundedAsyncReporter   : Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2023-10-28T16:50:51.101+02:00  WARN 3988 --- [AsyncReporter{org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender@3ccfac29}] z.r.AsyncReporter$BoundedAsyncReporter   : Dropped 5 spans due to WebClientRequestException(Connection refused: no further information: localhost/127.0.0.1:9411)
+
+org.springframework.web.reactive.function.client.WebClientRequestException: Connection refused: no further information: localhost/127.0.0.1:9411
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136) ~[spring-webflux-6.1.0-RC1.jar:6.1.0-RC1]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Request to POST http://localhost:9411/api/v2/spans [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136) ~[spring-webflux-6.1.0-RC1.jar:6.1.0-RC1]
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:228) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:278) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:326) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:211) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:872) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:336) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1743) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:195) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.netty.http.client.HttpClientConnect$MonoHttpConnect$ClientTransportSubscriber.onError(HttpClientConnect.java:311) ~[reactor-netty-http-1.1.12.jar:1.1.12]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onError(DefaultPooledConnectionProvider.java:162) ~[reactor-netty-core-1.1.12.jar:1.1.12]
+		at reactor.netty.internal.shaded.reactor.pool.AbstractPool$Borrower.fail(AbstractPool.java:475) ~[reactor-netty-core-1.1.12.jar:1.1.12]
+		at reactor.netty.internal.shaded.reactor.pool.SimpleDequePool.lambda$drainLoop$9(SimpleDequePool.java:433) ~[reactor-netty-core-1.1.12.jar:1.1.12]
+		at reactor.core.publisher.FluxDoOnEach$DoOnEachSubscriber.onError(FluxDoOnEach.java:186) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator$PooledConnectionInitializer.onError(DefaultPooledConnectionProvider.java:560) ~[reactor-netty-core-1.1.12.jar:1.1.12]
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.Operators.error(Operators.java:198) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.MonoError.subscribe(MonoError.java:53) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.tryFailure(TransportConnector.java:576) ~[reactor-netty-core-1.1.12.jar:1.1.12]
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.setFailure(TransportConnector.java:522) ~[reactor-netty-core-1.1.12.jar:1.1.12]
+		at reactor.netty.transport.TransportConnector.lambda$doConnect$7(TransportConnector.java:261) ~[reactor-netty-core-1.1.12.jar:1.1.12]
+		at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:321) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:337) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+	Suppressed: java.lang.Exception: #block terminated with an error
+		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:103) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.Mono.block(Mono.java:1728) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender$WebClientHttpPostCall.doExecute(ZipkinWebClientSender.java:76) ~[spring-boot-actuator-autoconfigure-3.2.0-RC1.jar:3.2.0-RC1]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender$WebClientHttpPostCall.doExecute(ZipkinWebClientSender.java:54) ~[spring-boot-actuator-autoconfigure-3.2.0-RC1.jar:3.2.0-RC1]
+		at zipkin2.Call$Base.execute(Call.java:391) ~[zipkin-2.23.2.jar:na]
+		at zipkin2.reporter.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:299) ~[zipkin-reporter-2.16.4.jar:na]
+		at zipkin2.reporter.AsyncReporter$Flusher.run(AsyncReporter.java:378) ~[zipkin-reporter-2.16.4.jar:na]
+		at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:9411
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973) ~[na:na]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2023-10-28T16:51:42.563+02:00 DEBUG 3988 --- [tomcat-handler-6] o.s.web.servlet.DispatcherServlet        : GET "/rest/00000000-0000-0000-0000-000000000001", parameters={}
+2023-10-28T16:51:42.565+02:00 DEBUG 3988 --- [tomcat-handler-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.acme.onlineshop.rest.ProduktGetController#getBySku(UUID, HttpServletRequest)
+2023-10-28T16:51:42.565+02:00 DEBUG 3988 --- [tomcat-handler-6] c.a.o.rest.ProduktGetController          : getBySku: sku=00000000-0000-0000-0000-000000000001, Thread=tomcat-handler-6
+2023-10-28T16:51:42.566+02:00 DEBUG 3988 --- [tomcat-handler-6] c.a.o.service.ProduktReadService         : findBySku: id=00000000-0000-0000-0000-000000000001
+2023-10-28T16:51:42.566+02:00 DEBUG 3988 --- [tomcat-handler-6] c.a.o.repository.ProduktRepository       : findById: sku=00000000-0000-0000-0000-000000000001
+2023-10-28T16:51:42.566+02:00 DEBUG 3988 --- [tomcat-handler-6] c.a.o.repository.ProduktRepository       : findBySku: Optional[Produkt(sku=00000000-0000-0000-0000-000000000001, name=Gucci T-Shirt)]
+2023-10-28T16:51:42.566+02:00 DEBUG 3988 --- [tomcat-handler-6] c.a.o.service.ProduktReadService         : findBySku: Produkt(sku=00000000-0000-0000-0000-000000000001, name=Gucci T-Shirt)
+2023-10-28T16:51:42.566+02:00 DEBUG 3988 --- [tomcat-handler-6] com.acme.onlineshop.rest.UriHelper       : getBaseUri (ohne Forwarding): baseUri=https://localhost:8080/rest
+2023-10-28T16:51:42.566+02:00 DEBUG 3988 --- [tomcat-handler-6] c.a.o.rest.ProduktGetController          : produkt: {produkt=Produkt(sku=00000000-0000-0000-0000-000000000001, name=Gucci T-Shirt), links=[<https://localhost:8080/rest/00000000-0000-0000-0000-000000000001>;rel="self"]}
+2023-10-28T16:51:42.567+02:00 DEBUG 3988 --- [tomcat-handler-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2023-10-28T16:51:42.567+02:00 DEBUG 3988 --- [tomcat-handler-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{produkt=Produkt(sku=00000000-0000-0000-0000-000000000001, name=Gucci T-Shirt), links=[<https://loca (truncated)...]
+2023-10-28T16:51:42.568+02:00 DEBUG 3988 --- [tomcat-handler-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-10-28T16:51:42.676+02:00 TRACE 3988 --- [AsyncReporter{org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender@3ccfac29}] o.s.w.r.f.client.ExchangeFunctions       : [3ab14bec] HTTP POST http://localhost:9411/api/v2/spans, headers={masked}
+2023-10-28T16:56:48.971+02:00  INFO 5760 --- [main] o.s.s.core.SpringSecurityCoreVersion     : You are running with Spring Security Core 6.2.0-RC2
+2023-10-28T16:56:49.036+02:00  INFO 5760 --- [main] com.acme.onlineshop.Application          : Starting Application using Java 21.0.1 with PID 5760 (C:\Zimmermann\onlineshop\build\classes\java\main started by fresh in C:\Zimmermann\onlineshop)
+2023-10-28T16:56:49.036+02:00 DEBUG 5760 --- [main] com.acme.onlineshop.Application          : Running with Spring Boot v3.2.0-RC1, Spring v6.1.0-RC1
+2023-10-28T16:56:49.036+02:00  INFO 5760 --- [main] com.acme.onlineshop.Application          : The following 1 profile is active: "dev"
+2023-10-28T16:56:50.315+02:00  INFO 5760 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-28T16:56:50.344+02:00  INFO 5760 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 0 JPA repository interfaces.
+2023-10-28T16:56:51.574+02:00  INFO 5760 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (https)
+2023-10-28T16:56:51.587+02:00  INFO 5760 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-28T16:56:51.587+02:00  INFO 5760 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2023-10-28T16:56:51.669+02:00  INFO 5760 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-28T16:56:51.670+02:00  INFO 5760 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2578 ms
+2023-10-28T16:56:52.239+02:00  INFO 5760 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-28T16:56:52.545+02:00  INFO 5760 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2023-10-28T16:56:52.547+02:00  INFO 5760 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-28T16:56:52.558+02:00  INFO 5760 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2023-10-28T16:56:52.820+02:00  INFO 5760 --- [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.22.3 by Redgate
+2023-10-28T16:56:52.821+02:00  INFO 5760 --- [main] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2023-10-28T16:56:52.821+02:00  INFO 5760 --- [main] o.f.c.internal.license.VersionPrinter    : 
+2023-10-28T16:56:52.866+02:00  INFO 5760 --- [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:h2:mem:testdb (H2 2.2)
+2023-10-28T16:56:52.870+02:00  WARN 5760 --- [main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2023-10-28T16:56:52.895+02:00  INFO 5760 --- [main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "PUBLIC"."flyway_schema_history" does not exist yet
+2023-10-28T16:56:52.900+02:00  INFO 5760 --- [main] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.016s)
+2023-10-28T16:56:52.905+02:00  INFO 5760 --- [main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+2023-10-28T16:56:52.914+02:00 DEBUG 5760 --- [main] o.f.c.i.s.DefaultSqlScriptExecutor       : Executing SQL: CREATE TABLE IF NOT EXISTS "PUBLIC"."flyway_schema_history" (
+    "installed_rank" INT NOT NULL,
+    "version" VARCHAR(50),
+    "description" VARCHAR(200) NOT NULL,
+    "type" VARCHAR(20) NOT NULL,
+    "script" VARCHAR(1000) NOT NULL,
+    "checksum" INT,
+    "installed_by" VARCHAR(100) NOT NULL,
+    "installed_on" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "execution_time" INT NOT NULL,
+    "success" BOOLEAN NOT NULL,
+    CONSTRAINT "flyway_schema_history_pk" PRIMARY KEY ("installed_rank")
+) AS SELECT -1, NULL, '<< Flyway Schema History table created >>', 'TABLE', '', NULL, 'SA', CURRENT_TIMESTAMP, 0, TRUE
+2023-10-28T16:56:52.921+02:00 DEBUG 5760 --- [main] o.f.c.i.s.DefaultSqlScriptExecutor       : 0 rows affected
+2023-10-28T16:56:52.922+02:00 DEBUG 5760 --- [main] o.f.c.i.s.DefaultSqlScriptExecutor       : Executing SQL: CREATE INDEX "PUBLIC"."flyway_schema_history_s_idx" ON "PUBLIC"."flyway_schema_history" ("success")
+2023-10-28T16:56:52.924+02:00 DEBUG 5760 --- [main] o.f.c.i.s.DefaultSqlScriptExecutor       : 0 rows affected
+2023-10-28T16:56:52.930+02:00  INFO 5760 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": << Empty Schema >>
+2023-10-28T16:56:52.936+02:00  INFO 5760 --- [main] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "1.0 - Create"
+2023-10-28T16:56:52.945+02:00  INFO 5760 --- [main] o.f.core.internal.command.DbMigrate      : Successfully applied 1 migration to schema "PUBLIC", now at version v1.0 (execution time 00:00.001s)
+2023-10-28T16:56:53.062+02:00  INFO 5760 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-28T16:56:53.129+02:00  INFO 5760 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2023-10-28T16:56:53.166+02:00  INFO 5760 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2023-10-28T16:56:53.431+02:00  INFO 5760 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-28T16:56:53.807+02:00  INFO 5760 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-10-28T16:56:53.815+02:00  INFO 5760 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-28T16:56:54.847+02:00  INFO 5760 --- [main] o.a.t.util.net.NioEndpoint.certificate   : Connector [https-jsse-nio-8080], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [C:\Users\fresh\.keystore] using alias [microservice] with trust store [null]
+2023-10-28T16:56:54.861+02:00  INFO 5760 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (https) with context path ''
+2023-10-28T16:56:54.882+02:00  INFO 5760 --- [main] com.acme.onlineshop.Application          : Started Application in 6.434 seconds (process running for 6.898)
+2023-10-28T16:56:54.891+02:00 DEBUG 5760 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2023-10-28T16:56:54.893+02:00 DEBUG 5760 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2023-10-28T16:57:20.600+02:00  INFO 5760 --- [tomcat-handler-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-28T16:57:20.602+02:00  INFO 5760 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-10-28T16:57:20.605+02:00 DEBUG 5760 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2023-10-28T16:57:20.609+02:00 DEBUG 5760 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2023-10-28T16:57:20.613+02:00 DEBUG 5760 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2023-10-28T16:57:20.747+02:00 DEBUG 5760 --- [tomcat-handler-5] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
+2023-10-28T16:57:21.134+02:00  INFO 5760 --- [tomcat-handler-5] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 17 endpoint(s) beneath base path '/actuator'
+2023-10-28T16:57:21.353+02:00 DEBUG 5760 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7faf00f7
+2023-10-28T16:57:21.384+02:00 DEBUG 5760 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@34d38f40
+2023-10-28T16:57:21.384+02:00 DEBUG 5760 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='true': request parameters and headers will be shown which may lead to unsafe logging of potentially sensitive data
+2023-10-28T16:57:21.384+02:00  INFO 5760 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 782 ms
+2023-10-28T16:57:21.797+02:00  INFO 5760 --- [tomcat-handler-5] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@16cfd17f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1292487d, org.springframework.security.web.context.SecurityContextHolderFilter@bc69bd2, org.springframework.security.web.header.HeaderWriterFilter@5a9252b0, org.springframework.web.filter.CorsFilter@50406b17, org.springframework.security.web.authentication.logout.LogoutFilter@2debb7f4, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@17ebde67, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1e1c90ae, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4b4c5810, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@22114311, org.springframework.security.web.access.ExceptionTranslationFilter@1a95dfae, org.springframework.security.web.access.intercept.AuthorizationFilter@1472ca76]
+2023-10-28T16:57:21.871+02:00 DEBUG 5760 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : GET "/rest/", parameters={}
+2023-10-28T16:57:21.934+02:00 DEBUG 5760 --- [tomcat-handler-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/problem+json', given [*/*] and supported [application/problem+json]
+2023-10-28T16:57:21.938+02:00 DEBUG 5760 --- [tomcat-handler-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ProblemDetail[type='about:blank', title='Not Found', status=404, detail='No static resource rest.',  (truncated)...]
+2023-10-28T16:57:21.957+02:00 DEBUG 5760 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2023-10-28T16:57:22.954+02:00 TRACE 5760 --- [AsyncReporter{org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender@4db46344}] o.s.w.r.f.client.ExchangeFunctions       : [26be899b] HTTP POST http://localhost:9411/api/v2/spans, headers={masked}
+2023-10-28T16:57:23.206+02:00  WARN 5760 --- [AsyncReporter{org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender@4db46344}] z.r.AsyncReporter$BoundedAsyncReporter   : Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2023-10-28T16:57:23.207+02:00  WARN 5760 --- [AsyncReporter{org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender@4db46344}] z.r.AsyncReporter$BoundedAsyncReporter   : Dropped 5 spans due to WebClientRequestException(Connection refused: no further information: localhost/127.0.0.1:9411)
+
+org.springframework.web.reactive.function.client.WebClientRequestException: Connection refused: no further information: localhost/127.0.0.1:9411
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136) ~[spring-webflux-6.1.0-RC1.jar:6.1.0-RC1]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Request to POST http://localhost:9411/api/v2/spans [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136) ~[spring-webflux-6.1.0-RC1.jar:6.1.0-RC1]
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:228) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:278) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:326) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:211) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:872) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:336) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1743) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:195) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.netty.http.client.HttpClientConnect$MonoHttpConnect$ClientTransportSubscriber.onError(HttpClientConnect.java:311) ~[reactor-netty-http-1.1.12.jar:1.1.12]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onError(DefaultPooledConnectionProvider.java:162) ~[reactor-netty-core-1.1.12.jar:1.1.12]
+		at reactor.netty.internal.shaded.reactor.pool.AbstractPool$Borrower.fail(AbstractPool.java:475) ~[reactor-netty-core-1.1.12.jar:1.1.12]
+		at reactor.netty.internal.shaded.reactor.pool.SimpleDequePool.lambda$drainLoop$9(SimpleDequePool.java:433) ~[reactor-netty-core-1.1.12.jar:1.1.12]
+		at reactor.core.publisher.FluxDoOnEach$DoOnEachSubscriber.onError(FluxDoOnEach.java:186) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator$PooledConnectionInitializer.onError(DefaultPooledConnectionProvider.java:560) ~[reactor-netty-core-1.1.12.jar:1.1.12]
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.Operators.error(Operators.java:198) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.MonoError.subscribe(MonoError.java:53) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.tryFailure(TransportConnector.java:576) ~[reactor-netty-core-1.1.12.jar:1.1.12]
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.setFailure(TransportConnector.java:522) ~[reactor-netty-core-1.1.12.jar:1.1.12]
+		at reactor.netty.transport.TransportConnector.lambda$doConnect$7(TransportConnector.java:261) ~[reactor-netty-core-1.1.12.jar:1.1.12]
+		at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:321) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:337) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+		at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+	Suppressed: java.lang.Exception: #block terminated with an error
+		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:103) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at reactor.core.publisher.Mono.block(Mono.java:1728) ~[reactor-core-3.6.0-RC1.jar:3.6.0-RC1]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender$WebClientHttpPostCall.doExecute(ZipkinWebClientSender.java:76) ~[spring-boot-actuator-autoconfigure-3.2.0-RC1.jar:3.2.0-RC1]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender$WebClientHttpPostCall.doExecute(ZipkinWebClientSender.java:54) ~[spring-boot-actuator-autoconfigure-3.2.0-RC1.jar:3.2.0-RC1]
+		at zipkin2.Call$Base.execute(Call.java:391) ~[zipkin-2.23.2.jar:na]
+		at zipkin2.reporter.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:299) ~[zipkin-reporter-2.16.4.jar:na]
+		at zipkin2.reporter.AsyncReporter$Flusher.run(AsyncReporter.java:378) ~[zipkin-reporter-2.16.4.jar:na]
+		at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:9411
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973) ~[na:na]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.100.Final.jar:4.1.100.Final]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2023-10-28T16:57:26.009+02:00 DEBUG 5760 --- [tomcat-handler-6] o.s.web.servlet.DispatcherServlet        : GET "/rest/", parameters={}
+2023-10-28T16:57:26.011+02:00 DEBUG 5760 --- [tomcat-handler-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/problem+json', given [*/*] and supported [application/problem+json]
+2023-10-28T16:57:26.012+02:00 DEBUG 5760 --- [tomcat-handler-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ProblemDetail[type='about:blank', title='Not Found', status=404, detail='No static resource rest.',  (truncated)...]
+2023-10-28T16:57:26.013+02:00 DEBUG 5760 --- [tomcat-handler-6] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2023-10-28T16:57:26.241+02:00 TRACE 5760 --- [AsyncReporter{org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender@4db46344}] o.s.w.r.f.client.ExchangeFunctions       : [256431e7] HTTP POST http://localhost:9411/api/v2/spans, headers={masked}
+2023-10-28T16:57:33.731+02:00 DEBUG 5760 --- [tomcat-handler-7] o.s.web.servlet.DispatcherServlet        : GET "/rest", parameters={}
+2023-10-28T16:57:33.733+02:00 DEBUG 5760 --- [tomcat-handler-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.acme.onlineshop.rest.ProduktGetController#getAll(HttpServletRequest)
+2023-10-28T16:57:33.742+02:00 DEBUG 5760 --- [tomcat-handler-7] c.a.o.rest.ProduktGetController          : getAll: Thread=tomcat-handler-7
+2023-10-28T16:57:33.742+02:00 DEBUG 5760 --- [tomcat-handler-7] c.a.o.service.ProduktReadService         : Requested findAll
+2023-10-28T16:57:33.746+02:00 DEBUG 5760 --- [tomcat-handler-7] c.a.o.rest.ProduktGetController          : produkt: [Produkt(sku=00000000-0000-0000-0000-000000000001, name=Gucci T-Shirt), Produkt(sku=00000000-0000-0000-0000-000000000002, name=Lacoste T-Shirt), Produkt(sku=00000000-0000-0000-0000-000000000003, name=HKa Tasse)]
+2023-10-28T16:57:33.748+02:00 DEBUG 5760 --- [tomcat-handler-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json]
+2023-10-28T16:57:33.749+02:00 DEBUG 5760 --- [tomcat-handler-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[Produkt(sku=00000000-0000-0000-0000-000000000001, name=Gucci T-Shirt), Produkt(sku=00000000-0000-00 (truncated)...]
+2023-10-28T16:57:33.762+02:00 DEBUG 5760 --- [tomcat-handler-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-10-28T16:57:34.335+02:00 TRACE 5760 --- [AsyncReporter{org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender@4db46344}] o.s.w.r.f.client.ExchangeFunctions       : [71b9380b] HTTP POST http://localhost:9411/api/v2/spans, headers={masked}

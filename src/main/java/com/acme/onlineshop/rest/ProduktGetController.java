@@ -1,28 +1,21 @@
 package com.acme.onlineshop.rest;
 
+import com.acme.onlineshop.entity.Produkt;
 import com.acme.onlineshop.service.ProduktReadService;
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.info.Info;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.servlet.http.HttpServletRequest;
 
-import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.Link;
-import org.springframework.hateoas.LinkRelation;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import static com.acme.onlineshop.rest.ProduktGetController.REST_PATH;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -56,8 +49,22 @@ public class ProduktGetController {
     private final ProduktReadService service;
     private final UriHelper uriHelper;
 
-    // https://docs.spring.io/spring-framework/docs/current/reference/html/web-reactive.html#webflux-ann-methods
-    // https://localhost:8080/swagger-ui.html
+    /**
+     * Finde all Produkte.
+     *
+     * @return Gefundener Kunde mit Atom-Links.
+     */
+    @GetMapping(path = "", produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getAll() {
+        log.debug("getAll: Thread={}", Thread.currentThread().getName());
+
+        // Geschaeftslogik bzw. Anwendungskern
+        final Collection<Produkt> produkte = service.findAll();
+
+        log.debug("produkt: {}", produkte);
+        return ResponseEntity.ok(produkte);
+    }
+
     /**
      * Suche anhand der Produkt-sku als Pfad-Parameter.
      *
@@ -72,23 +79,15 @@ public class ProduktGetController {
         // Geschaeftslogik bzw. Anwendungskern
         final var produkt = service.findBySku(sku);
 
-        if (produkt == null) {
-            return ResponseEntity.notFound().build();
-        }
-
         // HATEOAS
         // evtl. Forwarding von einem API-Gateway
         final var baseUri = uriHelper.getBaseUri(request).toString();
         final var idUri = STR."\{baseUri}/\{produkt.getSku()}";
         final var selfLink = Link.of(idUri);
-        final var listLink = Link.of(baseUri, LinkRelation.of("list"));
-        final var addLink = Link.of(baseUri, LinkRelation.of("add"));
-        final var updateLink = Link.of(idUri, LinkRelation.of("update"));
-        final var removeLink = Link.of(idUri, LinkRelation.of("remove"));
 
         final Map<String, Object> responseBody = new HashMap<>();
         responseBody.put("produkt", produkt);
-        responseBody.put("links", Arrays.asList(selfLink, listLink, addLink, updateLink, removeLink));
+        responseBody.put("links", List.of(selfLink));
 
         log.debug("produkt: {}", responseBody);
         return ResponseEntity.ok(responseBody);

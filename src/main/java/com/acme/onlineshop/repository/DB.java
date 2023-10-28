@@ -21,9 +21,6 @@ import com.acme.onlineshop.entity.Produkt;
 import com.acme.onlineshop.entity.ProduktAttribut;
 import com.acme.onlineshop.entity.ProduktAttributType;
 
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URL;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -137,13 +134,5 @@ final class DB {
         )
             // CAVEAT Stream.toList() erstellt eine "immutable" List
             .collect(Collectors.toList());
-    }
-
-    private static URL buildURL(final String url) {
-        try {
-            return URI.create(url).toURL();
-        } catch (final MalformedURLException e) {
-            throw new IllegalArgumentException(e);
-        }
     }
 }
