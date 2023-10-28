@@ -6,7 +6,7 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 /**
- * Enum für Interessen. Dazu können auf der Clientseite z.B. Checkboxen realisiert werden.
+ * Enum für keys für die Attribute.
  *
  * @author <a href="mailto:leon.gauweiler@gmail.com">Leon Gauweiler</a>
  */

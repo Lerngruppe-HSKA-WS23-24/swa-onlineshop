@@ -38,15 +38,12 @@ public class ProduktGetController {
     public static final String ID_PATTERN =
         "[\\dA-Fa-f]{8}-[\\dA-Fa-f]{4}-[\\dA-Fa-f]{4}-[\\dA-Fa-f]{4}-[\\dA-Fa-f]{12}";
 
-    /**
-     * Pfad, um Nachnamen abzufragen.
-     */
     private final ProduktReadService service;
 
     /**
      * Finde all Produkte.
      *
-     * @return Gefundener Kunde mit Atom-Links.
+     * @return Alle Produkte.
      */
     @GetMapping(path = "", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<Collection<Produkt>> getAll() {
@@ -63,7 +60,7 @@ public class ProduktGetController {
      * Suche anhand der Produkt-sku als Pfad-Parameter.
      *
      * @param sku sku des zu suchenden Produkts
-     * @return Gefundener Kunde mit Atom-Links.
+     * @return Gefundenes Produkt.
      */
     @GetMapping(path = "{sku:" + ID_PATTERN + "}", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<Produkt> getBySku(@PathVariable final UUID sku) {

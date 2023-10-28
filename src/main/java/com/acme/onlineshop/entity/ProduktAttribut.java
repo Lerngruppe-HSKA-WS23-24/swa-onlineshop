@@ -6,7 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * Geldbetrag und Währungseinheit für eine Umsatzangabe.
+ * Ein Schluessel und ein value für Informationen fuer ein Produkt.
  *
  * @author <a href="mailto:leon.gauweiler@gmail.com">Leon Gauweiler</a>
  */
