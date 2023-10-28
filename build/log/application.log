@@ -657,3 +657,56 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 2023-10-28T16:57:33.749+02:00 DEBUG 5760 --- [tomcat-handler-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[Produkt(sku=00000000-0000-0000-0000-000000000001, name=Gucci T-Shirt), Produkt(sku=00000000-0000-00 (truncated)...]
 2023-10-28T16:57:33.762+02:00 DEBUG 5760 --- [tomcat-handler-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
 2023-10-28T16:57:34.335+02:00 TRACE 5760 --- [AsyncReporter{org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender@4db46344}] o.s.w.r.f.client.ExchangeFunctions       : [71b9380b] HTTP POST http://localhost:9411/api/v2/spans, headers={masked}
+2023-10-28T17:10:28.908+02:00  INFO 12364 --- [main] o.s.s.core.SpringSecurityCoreVersion     : You are running with Spring Security Core 6.2.0-RC2
+2023-10-28T17:10:28.983+02:00  INFO 12364 --- [main] com.acme.onlineshop.Application          : Starting Application using Java 21.0.1 with PID 12364 (C:\Zimmermann\onlineshop\build\classes\java\main started by fresh in C:\Zimmermann\onlineshop)
+2023-10-28T17:10:28.983+02:00 DEBUG 12364 --- [main] com.acme.onlineshop.Application          : Running with Spring Boot v3.2.0-RC1, Spring v6.1.0-RC1
+2023-10-28T17:10:28.984+02:00  INFO 12364 --- [main] com.acme.onlineshop.Application          : The following 1 profile is active: "dev"
+2023-10-28T17:10:30.376+02:00  INFO 12364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-28T17:10:30.406+02:00  INFO 12364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 JPA repository interfaces.
+2023-10-28T17:10:31.656+02:00  INFO 12364 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (https)
+2023-10-28T17:10:31.669+02:00  INFO 12364 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-28T17:10:31.671+02:00  INFO 12364 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2023-10-28T17:10:31.756+02:00  INFO 12364 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-28T17:10:31.757+02:00  INFO 12364 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2708 ms
+2023-10-28T17:10:32.327+02:00  INFO 12364 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-28T17:10:32.643+02:00  INFO 12364 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2023-10-28T17:10:32.646+02:00  INFO 12364 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-28T17:10:32.657+02:00  INFO 12364 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2023-10-28T17:10:32.934+02:00  INFO 12364 --- [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.22.3 by Redgate
+2023-10-28T17:10:32.934+02:00  INFO 12364 --- [main] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2023-10-28T17:10:32.934+02:00  INFO 12364 --- [main] o.f.c.internal.license.VersionPrinter    : 
+2023-10-28T17:10:32.974+02:00  INFO 12364 --- [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:h2:mem:testdb (H2 2.2)
+2023-10-28T17:10:32.979+02:00  WARN 12364 --- [main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2023-10-28T17:10:32.999+02:00  INFO 12364 --- [main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "PUBLIC"."flyway_schema_history" does not exist yet
+2023-10-28T17:10:33.001+02:00  INFO 12364 --- [main] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.010s)
+2023-10-28T17:10:33.007+02:00  INFO 12364 --- [main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+2023-10-28T17:10:33.018+02:00 DEBUG 12364 --- [main] o.f.c.i.s.DefaultSqlScriptExecutor       : Executing SQL: CREATE TABLE IF NOT EXISTS "PUBLIC"."flyway_schema_history" (
+    "installed_rank" INT NOT NULL,
+    "version" VARCHAR(50),
+    "description" VARCHAR(200) NOT NULL,
+    "type" VARCHAR(20) NOT NULL,
+    "script" VARCHAR(1000) NOT NULL,
+    "checksum" INT,
+    "installed_by" VARCHAR(100) NOT NULL,
+    "installed_on" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "execution_time" INT NOT NULL,
+    "success" BOOLEAN NOT NULL,
+    CONSTRAINT "flyway_schema_history_pk" PRIMARY KEY ("installed_rank")
+) AS SELECT -1, NULL, '<< Flyway Schema History table created >>', 'TABLE', '', NULL, 'SA', CURRENT_TIMESTAMP, 0, TRUE
+2023-10-28T17:10:33.024+02:00 DEBUG 12364 --- [main] o.f.c.i.s.DefaultSqlScriptExecutor       : 0 rows affected
+2023-10-28T17:10:33.025+02:00 DEBUG 12364 --- [main] o.f.c.i.s.DefaultSqlScriptExecutor       : Executing SQL: CREATE INDEX "PUBLIC"."flyway_schema_history_s_idx" ON "PUBLIC"."flyway_schema_history" ("success")
+2023-10-28T17:10:33.027+02:00 DEBUG 12364 --- [main] o.f.c.i.s.DefaultSqlScriptExecutor       : 0 rows affected
+2023-10-28T17:10:33.033+02:00  INFO 12364 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": << Empty Schema >>
+2023-10-28T17:10:33.042+02:00  INFO 12364 --- [main] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "1.0 - Create"
+2023-10-28T17:10:33.051+02:00  INFO 12364 --- [main] o.f.core.internal.command.DbMigrate      : Successfully applied 1 migration to schema "PUBLIC", now at version v1.0 (execution time 00:00.002s)
+2023-10-28T17:10:33.174+02:00  INFO 12364 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-28T17:10:33.241+02:00  INFO 12364 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2023-10-28T17:10:33.284+02:00  INFO 12364 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2023-10-28T17:10:33.539+02:00  INFO 12364 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-28T17:10:33.899+02:00  INFO 12364 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-10-28T17:10:33.906+02:00  INFO 12364 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-28T17:10:34.906+02:00  INFO 12364 --- [main] o.a.t.util.net.NioEndpoint.certificate   : Connector [https-jsse-nio-8080], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [C:\Users\fresh\.keystore] using alias [microservice] with trust store [null]
+2023-10-28T17:10:34.919+02:00  INFO 12364 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (https) with context path ''
+2023-10-28T17:10:34.939+02:00  INFO 12364 --- [main] com.acme.onlineshop.Application          : Started Application in 6.549 seconds (process running for 7.05)
+2023-10-28T17:10:34.947+02:00 DEBUG 12364 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2023-10-28T17:10:34.949+02:00 DEBUG 12364 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
