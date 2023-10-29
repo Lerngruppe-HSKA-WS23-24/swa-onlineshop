@@ -44,7 +44,7 @@ public class ProduktRepository {
      * @return Optional mit dem gefundenen Produkt oder leeres Optional
      */
     public Optional<Produkt> findBySku(final UUID sku) {
-        log.debug("findById: sku={}", sku);
+        log.debug("findBySku: sku={}", sku);
         final var result = PRODUKTE.stream()
             .filter(produkt -> Objects.equals(produkt.getSku(), sku))
             .findFirst();

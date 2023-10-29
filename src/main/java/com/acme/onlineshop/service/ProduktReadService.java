@@ -29,7 +29,7 @@ public class ProduktReadService {
      * @throws NotFoundException Falls kein Produkt gefunden wurde
      */
     public @NonNull Produkt findBySku(final UUID sku) {
-        log.debug("findBySku: id={}", sku);
+        log.debug("findBySku: sku={}", sku);
         final var produkt = produktRepository.findBySku(sku)
             .orElseThrow(() -> new NotFoundException(sku));
         log.debug("findBySku: {}", produkt);

@@ -1,12 +1,19 @@
 package com.acme.onlineshop.rest;
 
 import com.acme.onlineshop.entity.Produkt;
+import com.acme.onlineshop.service.NotFoundException;
 import com.acme.onlineshop.service.ProduktReadService;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
+
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.hateoas.Link;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,6 +46,7 @@ public class ProduktGetController {
         "[\\dA-Fa-f]{8}-[\\dA-Fa-f]{4}-[\\dA-Fa-f]{4}-[\\dA-Fa-f]{4}-[\\dA-Fa-f]{12}";
 
     private final ProduktReadService service;
+    private final UriHelper uriHelper;
 
     /**
      * Finde all Produkte.
@@ -63,12 +71,27 @@ public class ProduktGetController {
      * @return Gefundenes Produkt.
      */
     @GetMapping(path = "{sku:" + ID_PATTERN + "}", produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Produkt> getBySku(@PathVariable final UUID sku) {
+    public ResponseEntity<?> getById(@PathVariable final UUID sku, final HttpServletRequest request) {
         log.debug("getBySku: sku={}, Thread={}", sku, Thread.currentThread().getName());
 
         // Geschaeftslogik bzw. Anwendungskern
-        final var produkt = service.findBySku(sku);
-        log.debug("produkt: {}", produkt);
-        return ResponseEntity.ok(produkt);
+        try {
+            final var produkt = service.findBySku(sku);
+            // HATEOAS
+            // evtl. Forwarding von einem API-Gateway
+            final var baseUri = uriHelper.getBaseUri(request).toString();
+            final var skuUri = STR."\{baseUri}/\{produkt.getSku()}";
+            final var selfLink = Link.of(skuUri);
+
+            final Map<String, Object> responseBody = new HashMap<>();
+            responseBody.put("produkt", produkt);
+            responseBody.put("links", List.of(selfLink));
+
+            log.debug("Produkt: {}", responseBody);
+            return ResponseEntity.ok(responseBody);
+        } catch (NotFoundException exception) {
+            log.error("Produkt mit SKU {} nicht gefunden", sku);
+            return ResponseEntity.notFound().build();
+        }
     }
 }
