@@ -1,6 +1,8 @@
 package com.acme.onlineshop.service;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import com.acme.onlineshop.entity.Produkt;
@@ -45,5 +47,41 @@ public class ProduktReadService {
     public @NonNull Collection<Produkt> findAll() {
         log.debug("Requested findAll");
         return produktRepository.findAll();
+    }
+
+    /**
+     * Kunden anhand von Suchkriterien als Collection suchen.
+     *
+     * @param suchkriterien Die Suchkriterien
+     * @return Die gefundenen Produkte oder eine leere Liste
+     * @throws NotFoundException Falls keine Produkte gefunden wurden
+     */
+    @SuppressWarnings({"ReturnCount", "NestedIfDepth"})
+    public @NonNull Collection<Produkt> find(@NonNull final Map<String, List<String>> suchkriterien) {
+        log.debug("find: suchkriterien={}", suchkriterien);
+
+        if (suchkriterien.isEmpty()) {
+            return produktRepository.findAll();
+        }
+
+        if (suchkriterien.size() == 1) {
+            final var name = suchkriterien.get("name");
+            if (name != null && name.size() == 1) {
+                final var produkte = produktRepository.findByName(name.getFirst());
+                log.debug("find (name): {}", produkte);
+                return produkte;
+            }
+
+            final var kategorie = suchkriterien.get("kategorie");
+            if (kategorie != null && kategorie.size() == 1) {
+                final var produkte = produktRepository.find(suchkriterien);
+                log.debug("find (kategorie): {}", produkte);
+                return produkte;
+            }
+        }
+
+        final var produkte = produktRepository.find(suchkriterien);
+        log.debug("find: {}", produkte);
+        return produkte;
     }
 }

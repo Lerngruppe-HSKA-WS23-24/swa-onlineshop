@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2022 - present Juergen Zimmermann, Hochschule Karlsruhe
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package com.acme.onlineshop.repository;
 
 import com.acme.onlineshop.entity.Produkt;
@@ -22,11 +6,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 
 import static com.acme.onlineshop.repository.DB.PRODUKTE;
+import static java.util.Collections.emptyList;
 
 /**
  * Repository für den DB-Zugriff bei Produkten.
@@ -37,6 +24,54 @@ import static com.acme.onlineshop.repository.DB.PRODUKTE;
 @Slf4j
 @SuppressWarnings("PublicConstructor")
 public class ProduktRepository {
+    /**
+     * Produkte anhand von Suchkriterien ermitteln.
+     *
+     * @param suchkriterien Suchkriterien.
+     * @return Gefundene Produkte oder eine leere Collection.
+     */
+    @SuppressWarnings({"ReturnCount"})
+    public @NonNull Collection<Produkt> find(final Map<String, ? extends List<String>> suchkriterien) {
+        log.debug("find: suchkriterien={}", suchkriterien);
+
+        if (suchkriterien.isEmpty()) {
+            return findAll();
+        }
+
+        // for-Schleife statt "forEach" wegen return
+        for (final var entry : suchkriterien.entrySet()) {
+            switch (entry.getKey()) {
+                case "name" -> {
+                    return findByName(entry.getValue().getFirst());
+                }
+                case "kategorie" -> {
+                    return findByKategorie(entry.getValue().getFirst());
+                }
+                default -> {
+                    log.debug("find: ungueltiges Suchkriterium={}", entry.getKey());
+                    return emptyList();
+                }
+            }
+        }
+
+        return emptyList();
+    }
+
+    /**
+     * Produkte anhand des Namens suchen.
+     *
+     * @param name Der Name der gesuchten Produkte
+     * @return Die gefundenen Produkte oder eine leere Collection
+     */
+    public @NonNull Collection<Produkt> findByName(final CharSequence name) {
+        log.debug("findByName: name={}", name);
+        final var produkte = PRODUKTE.stream()
+            .filter(produkt -> produkt.getName().contains(name))
+            .toList();
+        log.debug("findByName: name={}", produkte);
+        return produkte;
+    }
+
     /**
      * Einen Produktn anhand seiner ID suchen.
      *
@@ -59,5 +94,21 @@ public class ProduktRepository {
      */
     public @NonNull Collection<Produkt> findAll() {
         return PRODUKTE;
+    }
+
+    /**
+     * Produkte anhand von Kategorie suchen.
+     *
+     * @param kategorie Die Kategorie der gesuchten Produkte
+     * @return Die gefundenen Produkte oder eine leere Collection
+     */
+    private @NonNull Collection<Produkt> findByKategorie(final String kategorie) {
+        log.debug("findByKategorie: kategorie={}", kategorie);
+
+        final var produkte = PRODUKTE.stream()
+            .filter(produkt -> produkt.getKategorie().getName().contains(kategorie))
+            .toList();
+        log.debug("findByKategorie: produkte={}", produkte);
+        return produkte;
     }
 }

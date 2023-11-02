@@ -93,7 +93,7 @@ import java.nio.file.Paths
 
 val javaVersion: String = System.getProperty("java") ?: libs.versions.javaVersion.get()
 
-val imagePath = project.properties["imagePath"] ?: "juergenzimmermann"
+val imagePath = project.properties["imagePath"] ?: "leongauweiler"
 val enablePreview = if (project.properties["enablePreview"] == false) null else "--enable-preview"
 val alternativeBuildpack = project.properties["buildpack"]
 
