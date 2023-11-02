@@ -59,7 +59,7 @@ services:
           cpus: "2.0"
           memory: 1024M
         reservations:
-          cpus: "0.25"
+          cpus: "0.5"
           memory: 512M
       # https://docs.docker.com/compose/compose-file/deploy/#replicas
       #mode: replicated

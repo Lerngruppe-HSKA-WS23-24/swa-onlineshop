@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# Default values for kunde.
+# Default values for onlineshop.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -51,9 +51,9 @@ replicaCount: 2
 
 image:
   # -- Repository als Präfix beim Image-Namen
-  repository: juergenzimmermann
+  repository: leongauweiler
   # -- Name des Image
-  name: kunde
+  name: onlineshop
   # -- Pull-Policy für das Image
   pullPolicy: Always
   # -- Defaultwert ist im Chart bei `appVersion` und kann überschrieben werden.
@@ -115,8 +115,8 @@ autoscaling:
   memoryUtilizationPercentage: 80
 
 datasource:
-  url: jdbc:postgresql://localhost/kunde
-  username: kunde
+  url: jdbc:postgresql://localhost/onlineshop
+  username: onlineshop
   password: Change Me!
 
 h2:

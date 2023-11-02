@@ -19,7 +19,7 @@ apiVersion: apps/v1
 # https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.25/#deployment-v1-apps
 kind: Deployment
 metadata:
-  name: {{ include "kunde.fullname" . }}
+  name: {{ include "onlineshop.fullname" . }}
   namespace: {{ .Values.namespace }}
   # Kennzeichen bzw. Markierung
   # https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
@@ -28,15 +28,15 @@ metadata:
   labels:
     # https://helm.sh/docs/chart_template_guide/function_list
     # nindent rueckt um eine bestimmte Anzahl ("n") Zeichen ein
-    {{- include "kunde.labels" . | nindent 4 }}
+    {{- include "onlineshop.labels" . | nindent 4 }}
 spec:
   # https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#selector
   selector:
     # Labels, mit denen z.B. ein Service einen Pod (zu diesem Deployment) identifizieren kann
-    # z.B. fuer:   kubectl delete deployment --selector app=kunde,version=2.0.0 --namespace acme
+    # z.B. fuer:   kubectl delete deployment --selector app=onlineshop,version=2.0.0 --namespace acme
     # i.a. gleicher Wert wie in template.metadata.labels
     matchLabels:
-      {{- include "kunde.selectorLabels" . | nindent 6 }}
+      {{- include "onlineshop.selectorLabels" . | nindent 6 }}
   # Anzahl laufender Pods fuer das Template zu diesem Deployment (s.u.) -> ReplicaSet
   replicas: {{ .Values.replicaCount }}
   # https://kubernetes.io/docs/concepts/workloads/pods/#pod-templates
@@ -45,7 +45,7 @@ spec:
     metadata:
       # Labels fuer einen Pod (NICHT fuer dieses Deployment), der durch dieses Deployment installiert wurde
       labels:
-        {{- include "kunde.labels" . | nindent 8 }}
+        {{- include "onlineshop.labels" . | nindent 8 }}
     # Spezifikation fuer jeden Pod
     spec:
       containers:
@@ -59,12 +59,12 @@ spec:
           envFrom:
             # https://kubernetes.io/docs/concepts/configuration/configmap
             - configMapRef:
-                name: {{ include "kunde.fullname" . }}
+                name: {{ include "onlineshop.fullname" . }}
           env:
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "kunde.fullname" . }}
+                  name: {{ include "onlineshop.fullname" . }}
                   key: SPRING_DATASOURCE_PASSWORD
           ports:
             - containerPort: {{ .Values.deployment.containerPort }}
@@ -146,15 +146,15 @@ spec:
             failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
           volumeMounts:
             - mountPath: /tmp
-              name: log-{{ include "kunde.name" . }}{{ .Values.versionSuffix }}
+              name: log-{{ include "onlineshop.name" . }}{{ .Values.versionSuffix }}
       priorityClassName: medium-priority
       volumes:
-        - name: log-{{ include "kunde.name" . }}{{ .Values.versionSuffix }}
+        - name: log-{{ include "onlineshop.name" . }}{{ .Values.versionSuffix }}
           # https://kubernetes.io/docs/concepts/storage/volumes/#hostpath
           hostPath:
-            path: /run/desktop/mnt/host/c/Zimmermann/volumes/{{ include "kunde.name" . }}{{ .Values.versionSuffix }}
+            path: /run/desktop/mnt/host/c/Zimmermann/volumes/{{ include "onlineshop.name" . }}{{ .Values.versionSuffix }}
             type: Directory
           # https://kubernetes.io/docs/concepts/storage/volumes/#emptydir
           #emptyDir: {}
-      serviceAccountName: {{ include "kunde.fullname" . }}
+      serviceAccountName: {{ include "onlineshop.fullname" . }}
       automountServiceAccountToken: false
