@@ -63,12 +63,11 @@ public class ProduktRepository {
      * @param name Der Name der gesuchten Produkte
      * @return Die gefundenen Produkte oder eine leere Collection
      */
-    public @NonNull Collection<Produkt> findByName(final CharSequence name) {
+    public Collection<Produkt> findByName(final String name){
         log.debug("findByName: name={}", name);
         final var produkte = PRODUKTE.stream()
             .filter(produkt -> produkt.getName().contains(name))
             .toList();
-        log.debug("findByName: name={}", produkte);
         return produkte;
     }
 
@@ -102,7 +101,7 @@ public class ProduktRepository {
      * @param kategorie Die Kategorie der gesuchten Produkte
      * @return Die gefundenen Produkte oder eine leere Collection
      */
-    private @NonNull Collection<Produkt> findByKategorie(final String kategorie) {
+    public @NonNull Collection<Produkt> findByKategorie(final String kategorie) {
         log.debug("findByKategorie: kategorie={}", kategorie);
 
         final var produkte = PRODUKTE.stream()

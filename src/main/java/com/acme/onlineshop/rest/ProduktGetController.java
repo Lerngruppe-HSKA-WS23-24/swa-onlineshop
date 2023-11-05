@@ -15,6 +15,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.hateoas.Link;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +23,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
+
 import static com.acme.onlineshop.rest.ProduktGetController.REST_PATH;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -56,7 +59,7 @@ public class ProduktGetController {
      *
      * @return Alle Produkte.
      */
-    @GetMapping(path = "", produces = APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/all", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<Collection<Produkt>> getAll() {
         log.debug("getAll: Thread={}", Thread.currentThread().getName());
 
@@ -99,19 +102,24 @@ public class ProduktGetController {
     }
 
     /**
-     * Suche mit diversen Suchkriterien als Query-Parameter.
+     * Suche mit Suchkriterien als Query-Parameter nach Produkten.
      *
-     * @param suchkriterien Query-Parameter als Map.
-     * @return Gefundenen Produkte als Collection.
+     * @param suchkriterien Suchkriterien
+     * @return Gefundene Produkte.
      */
     @GetMapping(produces = APPLICATION_JSON_VALUE)
     Collection<Produkt> get(
-        @RequestParam @NonNull final MultiValueMap<String, String> suchkriterien
-    ) {
+        @RequestParam @NonNull final MultiValueMap<String, String> suchkriterien) {
         log.debug("get: suchkriterien={}", suchkriterien);
-        // Geschaeftslogik bzw. Anwendungskern
-        final var produkte = service.find(suchkriterien);
-        log.debug("get: {}", produkte);
-        return produkte;
+
+        try {
+            // Geschäftslogik bzw. Anwendungskern
+            final var produkte = service.find(suchkriterien);
+            log.debug("find: {}", produkte);
+            return produkte;
+        } catch (NotFoundException ex) {
+            // NotFoundException wird im ExceptionHandler behandelt
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage(), ex);
+        }
     }
 }

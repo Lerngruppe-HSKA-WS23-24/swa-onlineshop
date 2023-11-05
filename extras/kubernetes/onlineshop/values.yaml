@@ -23,10 +23,10 @@
 namespace: acme
 
 # -- Defaultwert ist im Chart bei `name` und kann überschrieben werden.
-nameOverride: ""
+nameOverride: "onlineshop"
 
 # -- _Fully Qualified Name (FQN)_ ist defaultmäßig im Chart bei `name` und kann überschrieben werden.
-fullnameOverride: ""
+fullnameOverride: "onlineshop"
 
 # -- Port des Kubernetes-Service
 servicePort: 8080

@@ -50,11 +50,11 @@ public class ProduktReadService {
     }
 
     /**
-     * Kunden anhand von Suchkriterien als Collection suchen.
+     * Fakultät anhand von Suchkriterien als Collection suchen.
      *
      * @param suchkriterien Die Suchkriterien
-     * @return Die gefundenen Produkte oder eine leere Liste
-     * @throws NotFoundException Falls keine Produkte gefunden wurden
+     * @return Die gefundene Fakultät oder eine leere Collection
+     * @throws NotFoundException Falls keine Kunden gefunden wurden
      */
     @SuppressWarnings({"ReturnCount", "NestedIfDepth"})
     public @NonNull Collection<Produkt> find(@NonNull final Map<String, List<String>> suchkriterien) {
@@ -68,19 +68,28 @@ public class ProduktReadService {
             final var name = suchkriterien.get("name");
             if (name != null && name.size() == 1) {
                 final var produkte = produktRepository.findByName(name.getFirst());
+                if (produkte.isEmpty()) {
+                    throw new NotFoundException(suchkriterien);
+                }
                 log.debug("find (name): {}", produkte);
                 return produkte;
             }
 
             final var kategorie = suchkriterien.get("kategorie");
             if (kategorie != null && kategorie.size() == 1) {
-                final var produkte = produktRepository.find(suchkriterien);
-                log.debug("find (kategorie): {}", produkte);
+                final var produkte = produktRepository.findByKategorie(kategorie.getFirst());
+                if (produkte.isEmpty()) {
+                    throw new NotFoundException(suchkriterien);
+                }
+                log.debug("find (kategorie): {}", kategorie);
                 return produkte;
             }
         }
 
         final var produkte = produktRepository.find(suchkriterien);
+        if (produkte.isEmpty()) {
+            throw new NotFoundException(suchkriterien);
+        }
         log.debug("find: {}", produkte);
         return produkte;
     }
