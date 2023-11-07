@@ -14,6 +14,7 @@ import java.util.UUID;
 
 import static com.acme.onlineshop.repository.DB.PRODUKTE;
 import static java.util.Collections.emptyList;
+import static java.util.UUID.randomUUID;
 
 /**
  * Repository für den DB-Zugriff bei Produkten.
@@ -109,5 +110,19 @@ public class ProduktRepository {
             .toList();
         log.debug("findByKategorie: produkte={}", produkte);
         return produkte;
+    }
+
+    /**
+     * Ein neues Produkt.
+     *
+     * @param produkt Das Objekt des neu anzulegenden Produkts.
+     * @return Das neu angelegte Produkt mit generierter sku
+     */
+    public @NonNull Produkt create(final @NonNull Produkt produkt) {
+        log.debug("create: {}", produkt);
+        produkt.setSku(randomUUID());
+        PRODUKTE.add(produkt);
+        log.debug("create: {}", produkt);
+        return produkt;
     }
 }

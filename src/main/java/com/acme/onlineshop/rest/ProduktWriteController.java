@@ -1,6 +1,6 @@
 package com.acme.onlineshop.rest;
 
-import com.acme.onlineshop.service.ProduktReadService;
+import com.acme.onlineshop.service.ProduktWriteService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,13 +26,13 @@ import static org.springframework.http.ResponseEntity.created;
 @RequiredArgsConstructor
 @Slf4j
 @SuppressWarnings("TrailingComment")
-public class ProduktPostController {
+public class ProduktWriteController {
     /**
      * Basispfad für die REST-Schnittstelle.
      */
     public static final String REST_PATH = "/rest";
 
-    private final ProduktReadService service;
+    private final ProduktWriteService service;
     private final UriHelper uriHelper;
     private final ProduktMapper mapper;
 
