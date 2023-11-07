@@ -10,7 +10,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.UUID;
+import java.util.stream.IntStream;
 
 import static com.acme.onlineshop.repository.DB.PRODUKTE;
 import static java.util.Collections.emptyList;
@@ -124,5 +126,24 @@ public class ProduktRepository {
         PRODUKTE.add(produkt);
         log.debug("create: {}", produkt);
         return produkt;
+    }
+
+    /**
+     * Ein vorhandenes Produkt aktualisieren.
+     *
+     * @param produkt Das Objekt mit den neuen Daten
+     */
+    public void update(final @NonNull Produkt produkt) {
+        log.debug("update: {}", produkt);
+        final OptionalInt index = IntStream
+            .range(0, PRODUKTE.size())
+            .filter(i -> Objects.equals(PRODUKTE.get(i).getSku(), produkt.getSku()))
+            .findFirst();
+        log.trace("update: index={}", index);
+        if (index.isEmpty()) {
+            return;
+        }
+        PRODUKTE.set(index.getAsInt(), produkt);
+        log.debug("update: {}", produkt);
     }
 }

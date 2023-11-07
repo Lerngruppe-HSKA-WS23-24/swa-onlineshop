@@ -44,47 +44,31 @@ public class ProduktWriteService {
     }
 
     /**
-     * Einen vorhandenen Kunden aktualisieren.
+     * Einen vorhandenes Produkt aktualisieren.
      *
-     * @param kunde Das Objekt mit den neuen Daten (ohne ID)
-     * @param id ID des zu aktualisierenden Kunden
+     * @param produkt Das Objekt mit den neuen Daten (ohne sku)
+     * @param sku des zu aktualisierenden Produktes
      * @throws ConstraintViolationsException Falls mindestens ein Constraint verletzt ist.
      * @throws NotFoundException Kein Kunde zur ID vorhanden.
-     * @throws EmailExistsException Es gibt bereits einen Kunden mit der Emailadresse.
-    public void update(final Kunde kunde, final UUID id) {
-        log.debug("update: {}", kunde);
-        log.debug("update: id={}", id);
+     **/
+    public void update(final Produkt produkt, final UUID sku) {
+        log.debug("update: {}", produkt);
+        log.debug("update: sku={}", sku);
 
-        final var violations = validator.validate(kunde);
+        final var violations = validator.validate(produkt);
         if (!violations.isEmpty()) {
             log.debug("update: violations={}", violations);
             throw new ConstraintViolationsException(violations);
         }
 
-        final var kundeDbOptional = repo.findById(id);
-        if (kundeDbOptional.isEmpty()) {
-            throw new NotFoundException(id);
+        final var produktDbOptional = repo.findBySku(sku);
+        if (produktDbOptional.isEmpty()) {
+            throw new NotFoundException(sku);
         }
 
-        final var email = kunde.getEmail();
-        final var kundeDb = kundeDbOptional.get();
-        // Ist die neue Email bei einem *ANDEREN* Kunden vorhanden?
-        if (!Objects.equals(email, kundeDb.getEmail()) && repo.isEmailExisting(email)) {
-            log.debug("update: email {} existiert", email);
-            throw new EmailExistsException(email);
-        }
+        final var produktDb = produktDbOptional.get();
 
-        kunde.setId(id);
-        repo.update(kunde);
+        produkt.setSku(sku);
+        repo.update(produkt);
     }
-
-    /**
-     * Einen vorhandenen Kunden löschen.
-     *
-     * @param id Die ID des zu löschenden Kunden.
-    public void deleteById(final UUID id) {
-        log.debug("deleteById: id={}", id);
-        repo.deleteById(id);
-    }
-    **/
 }
