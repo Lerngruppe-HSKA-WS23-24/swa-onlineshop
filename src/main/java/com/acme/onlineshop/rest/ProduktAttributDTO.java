@@ -13,5 +13,4 @@ record ProduktAttributDTO (
     ProduktAttributType key,
     String value
 ) {
-
 }

@@ -1,8 +1,5 @@
 package com.acme.onlineshop.rest;
 
-import com.acme.onlineshop.entity.Produkt;
-import org.mapstruct.Mapping;
-
 import java.util.List;
 
 /**
@@ -12,10 +9,9 @@ import java.util.List;
  * @param name Name eines Produktes.
  * @param kategorie Kategorie eines Produktes mit eingeschränkten Werten.
  */
-@SuppressWarnings("RecordComponentNumber")
 record ProduktDTO(
     String name,
     KategorieDTO kategorie,
-    List<ProduktAttributDTO> interessen
+    List<ProduktAttributDTO> attribute
 ) {
 }

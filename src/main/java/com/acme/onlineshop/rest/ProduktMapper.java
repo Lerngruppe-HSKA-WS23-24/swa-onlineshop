@@ -29,7 +29,7 @@ interface ProduktMapper {
      * @param dto DTO-Objekt für KategorieDTO ohne id
      * @return Konvertiertes Kategorie-Objekt mit null als id
      */
-    @Mapping(target = "id")
+    @Mapping(target = "id", ignore = true)
     Kategorie toKategorie(KategorieDTO dto);
 
     /**
