@@ -61,11 +61,11 @@ spec:
             - configMapRef:
                 name: {{ include "onlineshop.fullname" . }}
           env:
-            - name: SPRING_DATASOURCE_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "onlineshop.fullname" . }}
-                  key: SPRING_DATASOURCE_PASSWORD
+            #- name: SPRING_DATASOURCE_PASSWORD
+            #  valueFrom:
+            #    secretKeyRef:
+            #      name: {{ include "onlineshop.fullname" . }}
+            #      key: SPRING_DATASOURCE_PASSWORD
           ports:
             - containerPort: {{ .Values.deployment.containerPort }}
               name: http

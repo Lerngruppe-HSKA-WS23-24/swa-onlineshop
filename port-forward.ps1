@@ -1,4 +1,4 @@
-# Copyright (C) 2022 -  Juergen Zimmermann, Hochschule Karlsruhe
+# Copyright (C) 2017 -  Juergen Zimmermann, Hochschule Karlsruhe
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,7 +15,14 @@
 
 # https://docs.microsoft.com/en-us/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands?view=powershell-7
 
-# Aufruf:   .\kubescape.ps1
+# Aufruf:   .\port-forward.ps1
+# ggf. vorher:  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+# oder:         Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser
+
+# "Param" muss in der 1. Zeile sein
+Param (
+    [string]$service = 'onlineshop'
+)
 
 Set-StrictMode -Version Latest
 
@@ -26,11 +33,7 @@ if ($versionMinimum -gt $versionCurrent) {
 }
 
 # Titel setzen
-$host.ui.RawUI.WindowTitle = 'kubescape'
+$host.ui.RawUI.WindowTitle = "$service port forward"
 
-$release = 'onlineshop'
-Set-Location .\$release
-helm template $release . -f values.yaml -f dev.yaml > ${env:TEMP}\$release.yaml
-C:\Zimmermann\kubescape\kubescape.exe scan --verbose ${env:TEMP}\$release.yaml
-Set-Location ..
-# Remove-Item -Force ${env:TEMP}\$release.yaml
+$namespace = 'acme'
+kubectl port-forward service/$service 8080 --namespace $namespace

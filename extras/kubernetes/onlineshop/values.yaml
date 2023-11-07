@@ -23,10 +23,10 @@
 namespace: acme
 
 # -- Defaultwert ist im Chart bei `name` und kann überschrieben werden.
-nameOverride: "onlineshop"
+nameOverride: ""
 
 # -- _Fully Qualified Name (FQN)_ ist defaultmäßig im Chart bei `name` und kann überschrieben werden.
-fullnameOverride: "onlineshop"
+fullnameOverride: ""
 
 # -- Port des Kubernetes-Service
 servicePort: 8080
@@ -85,21 +85,21 @@ resourcesLimits:
   ephemeral: 64Mi
 
 livenessProbe:
-  # -- Anzahl Sekunden, bis die Probe für Liveness abgesetzt wird
+  # -- Anzahl Sezulieferern, bis die Probe für Liveness abgesetzt wird
   initialDelay: 0
-  # -- Timeout für Liveness-Probe in Sekunden
+  # -- Timeout für Liveness-Probe in Sezulieferern
   timeout: 1
-  # -- periodischer Abstand zwischen den Liveness-Proben in Sekunden
+  # -- periodischer Abstand zwischen den Liveness-Proben in Sezulieferern
   period: 10
   # -- Max. Anzahl an Fehlversuchen bei den Liveness-Proben
   failureThreshold: 3
 
 readinessProbe:
-  # -- Anzahl Sekunden, bis die Probe für Readiness abgesetzt wird
+  # -- Anzahl Sezulieferern, bis die Probe für Readiness abgesetzt wird
   initialDelay: 0
-  # -- Timeout für Readiness-Probe in Sekunden
+  # -- Timeout für Readiness-Probe in Sezulieferern
   timeout: 1
-  # -- periodischer Abstand zwischen den Readiness-Proben in Sekunden
+  # -- periodischer Abstand zwischen den Readiness-Proben in Sezulieferern
   period: 10
   # -- Max. Anzahl an Fehlversuchen bei den Readiness-Proben
   failureThreshold: 3

@@ -17,7 +17,7 @@
 #           ggf. zusaetzlich --dry-run
 #         helm uninstall onlineshop
 
-# Metadaten generiert durch: helm create kunde
+# Metadaten generiert durch: helm create onlineshop
 
 apiVersion: v2
 name: onlineshop
