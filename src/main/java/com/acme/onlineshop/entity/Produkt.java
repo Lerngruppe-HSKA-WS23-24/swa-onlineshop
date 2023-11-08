@@ -36,7 +36,6 @@ public class Produkt {
      * @return Die sku.
      */
     @EqualsAndHashCode.Include
-    @NotNull
     private UUID sku;
 
     /**
@@ -54,7 +53,6 @@ public class Produkt {
      * @return Die Kategorie.
      */
     @Valid
-    @Null
     @ToString.Exclude
     private Kategorie kategorie;
 

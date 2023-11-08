@@ -1,10 +1,13 @@
 package com.acme.onlineshop.rest;
 
+import com.acme.onlineshop.service.ConstraintViolationsException;
 import com.acme.onlineshop.service.ProduktWriteService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -16,6 +19,7 @@ import java.net.URI;
 import java.util.UUID;
 
 import static com.acme.onlineshop.rest.ProduktGetController.REST_PATH;
+import static org.springframework.http.HttpStatus.UNPROCESSABLE_ENTITY;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.http.ResponseEntity.created;
 import static com.acme.onlineshop.rest.ProduktGetController.ID_PATTERN;
@@ -32,10 +36,8 @@ import static com.acme.onlineshop.rest.ProduktGetController.ID_PATTERN;
 @Slf4j
 @SuppressWarnings("TrailingComment")
 public class ProduktWriteController {
-    /**
-     * Basispfad für die REST-Schnittstelle.
-     */
-    public static final String REST_PATH = "/rest";
+    private static final String PROBLEM_PATH = "/problem/";
+
 
     private final ProduktWriteService service;
     private final UriHelper uriHelper;
@@ -69,5 +71,34 @@ public class ProduktWriteController {
         log.debug("put: sku={}, {}", sku, produktDTO);
         final var produktInput = mapper.toProdukt(produktDTO);
         service.update(produktInput, sku);
+    }
+
+    @ExceptionHandler
+    ProblemDetail onConstraintViolations(
+        final ConstraintViolationsException ex,
+        final HttpServletRequest request
+    ) {
+        log.debug("onConstraintViolations: {}", ex.getMessage());
+
+        final var produktViolations = ex.getViolations()
+            .stream()
+            .map(violation -> STR."\{violation.getPropertyPath()}: " +
+                STR."\{violation.getConstraintDescriptor().getAnnotation().annotationType().getSimpleName()} " +
+                violation.getMessage())
+            .toList();
+        log.trace("onConstraintViolations: {}", produktViolations);
+        final String detail;
+        if (produktViolations.isEmpty()) {
+            detail = "N/A";
+        } else {
+            final var violationsStr = produktViolations.toString();
+            detail = violationsStr.substring(1, violationsStr.length() - 2);
+        }
+
+        final var problemDetail = ProblemDetail.forStatusAndDetail(UNPROCESSABLE_ENTITY, detail);
+        problemDetail.setType(URI.create(STR."\{PROBLEM_PATH}\{ProblemType.CONSTRAINTS.getValue()}"));
+        problemDetail.setInstance(URI.create(request.getRequestURL().toString()));
+
+        return problemDetail;
     }
 }
