@@ -3,7 +3,6 @@ package com.acme.onlineshop.service;
 import com.acme.onlineshop.entity.Produkt;
 import com.acme.onlineshop.repository.ProduktRepository;
 import jakarta.validation.Validator;
-import java.util.Objects;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -72,7 +71,7 @@ public class ProduktWriteService {
 
         final var produktDb = produktDbOptional.get();
 
-        produkt.setSku(sku);
+        produkt.setSku(produktDb.getSku());
         repo.update(produkt);
     }
 }
