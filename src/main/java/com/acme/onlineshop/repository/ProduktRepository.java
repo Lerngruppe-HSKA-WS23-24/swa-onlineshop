@@ -146,4 +146,19 @@ public class ProduktRepository {
         PRODUKTE.set(index.getAsInt(), produkt);
         log.debug("update: {}", produkt);
     }
+
+    /**
+     * Abfrage, ob es ein Produkt mit gegebenem Namen gibt.
+     *
+     * @param name Name für die Suche
+     * @return true, falls es ein solches Produkt gibt, sonst false
+     */
+    public boolean isNameExisting(final String name) {
+        log.debug("isNameExisting: name={}", name);
+        final var count = PRODUKTE.stream()
+            .filter(produkt -> Objects.equals(produkt.getName(), name))
+            .count();
+        log.debug("isNameExisting: count={}", count);
+        return count > 0L;
+    }
 }

@@ -38,6 +38,10 @@ public class ProduktWriteService {
             throw new ConstraintViolationsException(violations);
         }
 
+        if (repo.isNameExisting(produkt.getName())) {
+            throw new NameExistsException(produkt.getName());
+        }
+
         final var produktDB = repo.create(produkt);
         log.debug("create: {}", produktDB);
         return produktDB;

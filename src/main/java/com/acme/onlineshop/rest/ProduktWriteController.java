@@ -1,6 +1,7 @@
 package com.acme.onlineshop.rest;
 
 import com.acme.onlineshop.service.ConstraintViolationsException;
+import com.acme.onlineshop.service.NameExistsException;
 import com.acme.onlineshop.service.ProduktWriteService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -99,6 +100,15 @@ public class ProduktWriteController {
         problemDetail.setType(URI.create(STR."\{PROBLEM_PATH}\{ProblemType.CONSTRAINTS.getValue()}"));
         problemDetail.setInstance(URI.create(request.getRequestURL().toString()));
 
+        return problemDetail;
+    }
+
+    @ExceptionHandler
+    ProblemDetail onNameExists(final NameExistsException ex, final HttpServletRequest request) {
+        log.debug("onNameExists: {}", ex.getMessage());
+        final var problemDetail = ProblemDetail.forStatusAndDetail(UNPROCESSABLE_ENTITY, ex.getMessage());
+        problemDetail.setType(URI.create(STR."\{PROBLEM_PATH}\{ProblemType.CONSTRAINTS.getValue()}"));
+        problemDetail.setInstance(URI.create(request.getRequestURL().toString()));
         return problemDetail;
     }
 }

@@ -81,24 +81,19 @@ public class ProduktGetController {
         log.debug("getBySku: sku={}, Thread={}", sku, Thread.currentThread().getName());
 
         // Geschaeftslogik bzw. Anwendungskern
-        try {
-            final var produkt = service.findBySku(sku);
-            // HATEOAS
-            // evtl. Forwarding von einem API-Gateway
-            final var baseUri = uriHelper.getBaseUri(request).toString();
-            final var skuUri = STR."\{baseUri}/\{produkt.getSku()}";
-            final var selfLink = Link.of(skuUri);
+        final var produkt = service.findBySku(sku);
+        // HATEOAS
+        // evtl. Forwarding von einem API-Gateway
+        final var baseUri = uriHelper.getBaseUri(request).toString();
+        final var skuUri = STR."\{baseUri}/\{produkt.getSku()}";
+        final var selfLink = Link.of(skuUri);
 
-            final Map<String, Object> responseBody = new HashMap<>();
-            responseBody.put("produkt", produkt);
-            responseBody.put("links", List.of(selfLink));
+        final Map<String, Object> responseBody = new HashMap<>();
+        responseBody.put("produkt", produkt);
+        responseBody.put("links", List.of(selfLink));
 
-            log.debug("Produkt: {}", responseBody);
-            return ResponseEntity.ok(responseBody);
-        } catch (NotFoundException exception) {
-            log.error("Produkt mit SKU {} nicht gefunden", sku);
-            return ResponseEntity.notFound().build();
-        }
+        log.debug("Produkt: {}", responseBody);
+        return ResponseEntity.ok(responseBody);
     }
 
     /**
