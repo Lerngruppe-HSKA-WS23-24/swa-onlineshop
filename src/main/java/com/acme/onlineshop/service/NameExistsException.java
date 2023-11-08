@@ -14,7 +14,7 @@ public class NameExistsException extends RuntimeException {
      */
     private final String name;
 
-    NameExistsException(@SuppressWarnings("ParameterHidesMemberVariable") final String name) {
+    NameExistsException(final String name) {
         super(STR."Der Name \{name} existiert bereits");
         this.name = name;
     }

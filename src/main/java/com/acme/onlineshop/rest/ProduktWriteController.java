@@ -52,7 +52,7 @@ public class ProduktWriteController {
      */
     @PostMapping(path = "", consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> addProdukt(
-        @RequestBody final ProduktDTO produktDTO,
+        @RequestBody() final ProduktDTO produktDTO,
         final HttpServletRequest request
     ) {
         final var produkt = service.create(mapper.toProdukt(produktDTO));

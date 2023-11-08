@@ -68,10 +68,9 @@ public class ProduktRepository {
      */
     public Collection<Produkt> findByName(final String name){
         log.debug("findByName: name={}", name);
-        final var produkte = PRODUKTE.stream()
+        return PRODUKTE.stream()
             .filter(produkt -> produkt.getName().contains(name))
             .toList();
-        return produkte;
     }
 
     /**

@@ -9,7 +9,7 @@ import java.util.List;
  * @param name Name eines Produktes.
  * @param kategorie Kategorie eines Produktes mit eingeschränkten Werten.
  */
-record ProduktDTO(
+public record ProduktDTO(
     String name,
     KategorieDTO kategorie,
     List<ProduktAttributDTO> attribute
