@@ -1,0 +1,102 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+"Das Wurzel-Query-Objekt für GraphQL-Anfragen."
+type Query {
+  "Liefert Daten eines spezifischen Produktes anhand der SKU."
+  produkt(sku: ID!): Produkt
+
+  "Liefert eine Liste von Produkten basierend auf den angegebenen Suchkriterien."
+  produkte(input: Suchkriterien): [Produkt!]
+
+  "Liefert alle vorhandenen Produkte."
+  AllProdukte: [Produkt!]
+}
+
+type Mutation {
+  "Einen neues Produkt anlegen"
+  create(input: ProduktInput!): CreatePayload
+}
+
+"Repräsentiert ein Produkt mit den spezifischen Attributen und Beziehungen."
+type Produkt {
+  "Eindeutige Identifikationsnummer des Produkts."
+  sku: ID
+
+  "Name des Produktes."
+  name: String!
+
+  "Liste der ProduktAttribute, die dem Produkt zugeordnet sind."
+  attribute: [ProduktAttribut!]
+
+  "Die Kategorie, der das Produkt zugeordnet ist."
+  kategorie: Kategorie
+}
+
+"Definiert ein Produktattribut mit key und value."
+type ProduktAttribut {
+  "Der key des Attributs."
+  key: String!
+
+  "Der Wert des Attributs."
+  value: String!
+}
+
+"Stellt einen Dekan mit seiner ID und seinem Namen dar."
+type Kategorie {
+  "Eindeutige Identifikationsnummer der Kategorie."
+  id: String!
+
+  "Name der Kategorie."
+  name: String!
+}
+
+"Definiert die Eingabekriterien zur Suche nach Fakultäten."
+input Suchkriterien {
+  "Name des Produktes als Suchkriterium."
+  name: String
+
+  "Name der Kategorie als Suchkriterium."
+  kategorie: String
+
+  "Der key des Produktattributs als Suchkriterium."
+  produktAttributKey: String
+
+  "Der value des Produktattributs als Suchkriterium."
+  attributValue: String
+}
+
+"Eingabedaten für ein neues Produkt."
+input ProduktInput {
+  "Name des neuen Produktes."
+  name: String!
+
+  "Liste der ProduktAttribute, die dem neuen Produkt zugeordnet werden sollen."
+  attribute: [ProduktAttributInput]
+
+  "Die Kategorie die dem neuen Produkt zugeordnet werden soll."
+  kategorie: KategorieInput
+}
+
+"Eingabedaten für eine neue Kategorie."
+input KategorieInput {
+  "Name der Kategorie."
+  name: String!
+}
+
+"Eingabedaten für ein neues Produktattribut."
+input ProduktAttributInput {
+  "Der key des Attributs."
+  key: String!
+
+  "Der Wert des Attributs."
+  value: String!
+}
+
+"Payload-Typ für die Rückgabe nach dem Erstellen eines neuen Datensatzes."
+type CreatePayload {
+  "Eindeutige sku des erstellten Datensatzes."
+  sku: String!
+}

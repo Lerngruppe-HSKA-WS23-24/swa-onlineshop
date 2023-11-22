@@ -38,6 +38,6 @@ public interface ProduktInputMapper {
      * @param input Das zu konvertierende {@code ProduktAttributInput}-Objekt.
      * @return Ein {@code ProduktAttribut}-Entity-Objekt
      */
-    @Mapping(target = "")
+    @Mapping(target = "key", ignore = false)
     ProduktAttribut toProduktAttribut(ProduktAttributInput input);
 }
