@@ -88,8 +88,8 @@
 // https://docs.gradle.org/current/userguide/task_configuration_avoidance.html
 // https://guides.gradle.org/migrating-build-logic-from-groovy-to-kotlin
 
-import java.nio.file.Paths
 import net.ltgt.gradle.errorprone.errorprone
+import java.nio.file.Paths
 
 val javaVersion: String = System.getProperty("java") ?: libs.versions.javaVersion.get()
 

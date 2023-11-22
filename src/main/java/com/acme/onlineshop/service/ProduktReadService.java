@@ -66,6 +66,7 @@ public class ProduktReadService {
 
         if (suchkriterien.size() == 1) {
             final var name = suchkriterien.get("name");
+            log.debug("find (name): {}", name);
             if (name != null && name.size() == 1) {
                 final var produkte = produktRepository.findByName(name.getFirst());
                 if (produkte.isEmpty()) {

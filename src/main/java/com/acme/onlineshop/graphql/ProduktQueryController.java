@@ -46,14 +46,14 @@ public class ProduktQueryController {
      * @param input Suchkriterien und ihre Werte, z.B. Name einer Fakultät
      * @return Die gefundenen Fakultäten als Collection
      */
-    @QueryMapping("fakultaeten")
+    @QueryMapping("produkte")
     Collection<Produkt> find(@Argument final Optional<Suchkriterien> input) {
         log.debug("find: suchkriterien = {}", input);
         final var suchkriterien = input.map(Suchkriterien::toMap).orElse(emptyMap());
         log.debug("find: suchkriterien = {}", suchkriterien);
-        final var fakultaeten = service.find(suchkriterien);
-        log.debug("find: fakultaeten = {}", fakultaeten);
-        return fakultaeten;
+        final var produkte = service.find(suchkriterien);
+        log.debug("find: produkte = {}", produkte);
+        return produkte;
     }
 
     /**
@@ -64,7 +64,7 @@ public class ProduktQueryController {
     @QueryMapping("findAll")
     Collection<Produkt> findAll() {
         log.debug("findAll:");
-        final var produkte = service.findAll();
+        final var produkte = service.find(emptyMap());
         log.debug("findAll: Produkte = {}", produkte);
         return produkte;
     }

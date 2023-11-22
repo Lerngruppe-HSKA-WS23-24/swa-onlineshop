@@ -36,14 +36,6 @@ public record Suchkriterien(
             map.put("kategorie", List.of(kategorie));
         }
 
-        if (produktAttributKey != null) {
-            map.put("produktAttributKey", List.of(produktAttributKey.toString()));
-        }
-
-        if (attributValue != null) {
-            map.put("attributValue", List.of(attributValue));
-        }
-
         return map;
     }
 }
