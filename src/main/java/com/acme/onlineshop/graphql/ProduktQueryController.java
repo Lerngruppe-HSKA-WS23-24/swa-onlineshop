@@ -61,11 +61,11 @@ public class ProduktQueryController {
      *
      * @return Eine Collection aller Fakultäten
      */
-    @QueryMapping("AllFakultaeten")
+    @QueryMapping("findAll")
     Collection<Produkt> findAll() {
         log.debug("findAll:");
-        final var fakultaeten = service.findAll();
-        log.debug("findAll: Fakultaeten = {}", fakultaeten);
-        return fakultaeten;
+        final var produkte = service.findAll();
+        log.debug("findAll: Produkte = {}", produkte);
+        return produkte;
     }
 }

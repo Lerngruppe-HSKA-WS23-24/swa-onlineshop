@@ -12,7 +12,7 @@ type Query {
   produkte(input: Suchkriterien): [Produkt!]
 
   "Liefert alle vorhandenen Produkte."
-  AllProdukte: [Produkt!]
+  findAll: [Produkt!]
 }
 
 type Mutation {
@@ -89,10 +89,21 @@ input KategorieInput {
 "Eingabedaten für ein neues Produktattribut."
 input ProduktAttributInput {
   "Der key des Attributs."
-  key: String!
+  key: ProduktAttributType!
 
   "Der Wert des Attributs."
   value: String!
+}
+
+enum ProduktAttributType {
+  "Der key des Attributs."
+  FARBE
+
+  "Der key des Attributs."
+  GROESSE
+
+  "Der key des Attributs."
+  MARKE
 }
 
 "Payload-Typ für die Rückgabe nach dem Erstellen eines neuen Datensatzes."
