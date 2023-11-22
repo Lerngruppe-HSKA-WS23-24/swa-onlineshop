@@ -1,5 +1,6 @@
 package com.acme.onlineshop.entity;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,6 +22,7 @@ public class ProduktAttribut {
      * @param key Der Key.
      * @return Der key.
      */
+    @NotNull
     private ProduktAttributType key;
 
     /**
@@ -28,5 +30,6 @@ public class ProduktAttribut {
      * @param value Der Value als String.
      * @return Der Value.
      */
+    @NotNull
     private String value;
 }
